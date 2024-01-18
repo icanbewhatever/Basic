@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{border: 1px solid gray; text-align: left; 
+            max-width:480px; }
+        label{padding-right: 10px;}
+        p{text-align: right;}
+    </style>
+</head>
+<body>
+    <h3>도서관 검색페이지</h3><br/>
+   <div>
+     <label>도서명<input type="text" name="book" size="30" maxlength="100"></label></br>
+     <label>출판사명<input type="text" name="publisher" size="30" maxlength="100"></label></br>
+     <label>발행년도
+     <select name="published_year" id="year">
+        <option value="2005">2005</option>
+        <option value="2006">2006</option>
+        <option value="2007">2007</option>
+    </select>
+    </label>
+    <label>저자암호<input type="password" name="password" size="30" maxlength="50"></label><br/>
+    <label>도서이미지
+        <input type="text" name="blank"><input type="file" name="file" value ="찾아보기" size="30" maxlength="50"></label><br/>    
+    <label>관련검색단어
+        <input type="checkbox" name="web">웹표준
+        <input type="checkbox" name="ajax">에이작스
+        <input type="checkbox" name="js">자바스크립트
+        <input type="checkbox" name="html">HTML
+        <input type="checkbox" name="sql" checked>MySQL
+    </label><br/>
+    <label>보관도서관
+        <input type="radio" name="library" value="library1">도서관1
+        <input type="radio" name="library" value="library2">도서관2
+        <input type="radio" name="library" value="library3">도서관3
+        <input type="radio" name="library" value="library4">도서관4
+        <input type="radio" name="library" value="library5">도서관5
+    </label><br/>
+    <label>관련 제목</label>
+    <select name="component" id="list" size="5" length="20" >
+        <option value="component_1" selected>component_1</option>
+        <option value="component_2" selected>component_2</option>
+        <option value="component_3">component_3</option>
+        <option value="component_4">component_4</option>
+    </select><br/>
+    <label for="explanation">설명</label>
+    <textarea id="explanation" cols="30" rows="10"></textarea>
+    <p>
+    <input type="submit" value="검색하기">
+    <input type="submit" value="취소하기">
+    <input type="submit" value="목록보기">
+    </p>
+</div>
+
+</body>
+
+</html>

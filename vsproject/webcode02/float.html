@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* blockquote{ float: right; width: 270px; border: 1px solid red;} */
+        .wrapper{ width: 800px; border: 1px solid red;
+                  overflow: auto;} /* float 속성을 사용했는데 부모영역을 벗어날 때 */
+        p { width: 230px; 
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid green;
+            float: left;}
+        .cls {clear: both;}   /* float 속성을 사용해 컨텐츠가 이상하게 보일 때 사용 */
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <h1>전기자전거</h1>
+    <blockquote>인생은 자전거를 타는 것과 같다. 넘어지지 않으려면 앞으로 남아가야 함다</blockquote>
+    <p>자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 이제는 전기의 힘으로 달란다</p>
+    <p>자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 이제는 전기의 힘으로 달란다</p>
+    <p>자전거는 바퀴가 두개이다</p>
+    <p class="cls">자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 이제는 전기의 힘으로 달란다</p>
+    <p>자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 </p>
+    <p>자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 </p>
+    <p class="cls">자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 이제는 전기의 힘으로 달란다</p>
+    <p>자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 이제는 전기의 힘으로 달란다</p>
+    <p>자전거는 바퀴가 두개이다 과거에는 사람의 힘으로 달렸지만 이제는 전기의 힘으로 달란다</p>
+    </div>
+</body>
+</html>

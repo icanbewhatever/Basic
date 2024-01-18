@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{padding-left: 50px;}
+        .firstImg {border: 10px solid green; width: 500;}
+    </style>
+</head>
+<body>
+    <h2>6차 과제 - 이현주</h2>
+    <h3>1. mouseover() 그리고 mouseout() 메소드</h3>
+
+    <div>
+        <img src="1.jpg" alt="" width="500" class="firstImg">
+    </div>
+
+    <h3>2. hover(function(){}, function(){})</h3>
+    <div>
+        <img src="2.jpg" alt="" class="secondImg">
+    </div>
+
+    <h3>3. click() doubleclick() 동일함</h3>
+    <img src="3.jpg" alt="" class="three">
+    <br>
+    <input type="button" value="이미지보이기" id="showImg">
+    <input type="button" value="이미지숨기기" id="hideImg">
+
+    <h3>4. keydown, keyup, keypress()</h3>
+    <P>Please write comments in English (<span>200</span> words)</P> 
+    <textarea name="" id="" cols="70" rows="10"></textarea>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $(function(){
+                //1번
+                $('.firstImg').mouseover(function(){
+                    $(this).css('border-color', 'red');
+                });
+                
+                $('.firstImg').mouseout(function(){
+                    $(this).css('border-color', 'green');
+                });
+            
+                //2번
+                $('.secondImg').hover(
+                    function(){
+                    $(this).attr("src", "1.jpg");
+                    },
+
+                    function(){
+                    $(this).attr("src", "2.jpg");
+                    }
+                );
+
+                //3번
+                $('#showImg').click(function(){
+                    $('.three').slideDown(1000);
+                });
+
+                $('#hideImg').click(function(){
+                    $('.three').slideUp(1000);
+                });
+
+                //4번
+                $('textarea').keypress(function(){
+                    var inputLength = $(this).val().length;
+                    var remain = 200 - inputLength;
+                    $('span').html(remain);
+                });
+
+            });
+
+
+
+
+
+
+        });
+
+    </script>
+
+</body>
+</html>

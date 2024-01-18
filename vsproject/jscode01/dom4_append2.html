@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>힉생목록</h2>
+    <!-- 간단한 테이블 만들기 -->
+    <table border="1" id="studentTable">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>성적</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>김건우</td>
+                <td>90</td>
+            </tr>
+
+            <tr>
+                <td>박대용</td>
+                <td>80</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <!-- 행추가를 위한 버튼 생성 + 자바스크립트 함수연결-->
+
+    <input type="button" value="학생추가" onclick="addStudentRow()">
+
+    <script>
+        //테이블 행을 추가하는 함수 구현
+        function addStudentRow() {
+            // 테이블과 행 생성
+            var table = document.getElementById("studentTable");
+            var newRow = table.insertRow(); //apprendChild() 유사함수
+
+            // 셀 생성 및 데이터 설정, <td> 생성
+            var cell1 = newRow.insertCell(0); //apprendChild() 열을 추가
+            var cell2 = newRow.insertCell(1);
+            cell1.innerHTML = "새로운 학생";
+            cell2.innerHTML = "N/A";
+        }
+    </script>
+</body>
+</html>

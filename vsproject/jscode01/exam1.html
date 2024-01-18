@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>
+        단항연산자
+        변수 num에 5를 할당하고, 이 변수를 사용해 자신의 부호를 반전시키는 코드를 작성하라
+
+        이항연산자
+        두 개의 숫자 변수 a b와 각각 8과 3을 할당하고, 이를 사용해 두 숫자의 곱과 몫, 나머지를 계산
+
+        삼항 연산자
+        변수 isRating을 true 또는 false로 설정하고, 이 변수를 사용해 “비가 옵니다” 또는 “비가 오지 않습니다.” 라는 메시지를 출력하는 코드를 작성해라
+
+        종합문제
+        변수 score에 학생 점수를 할당하고, 이 변수를 사용해 “합격” 또는 “불합격”을 판단하는 코드를 작성(합격기준 60점이상)
+
+    </p>    
+
+    <script>  
+
+        var num = 5;
+        var result = num++; 
+        var result2 = ++num;
+
+        console.log('단항결과1', result);
+        console.log('단항결과2', result2);
+
+
+        var a = 8;
+        var b = 3;
+
+        var multi = a*b;
+        var quotient = Math.floor(a/b);
+        var remainder = a%b;
+
+        console.log('이항결과1', multi);
+        console.log('이항결과2', quotient);
+        console.log('이항결과3', remainder);
+
+        var isRating = true;
+        
+        var forast = (isRating) ? "비가 옵니다" : "비가 오지 않습니다";
+    
+        console.log(isRating); //안나온다~~~~~~~
+        
+
+        var score = 80;
+        var message = "";
+
+        if(score>60){
+            message= "합격";
+        }else{
+            message="불합격";
+        }        
+        console.log("합격여부:", message)
+
+    </script>
+    
+</body>
+</html>

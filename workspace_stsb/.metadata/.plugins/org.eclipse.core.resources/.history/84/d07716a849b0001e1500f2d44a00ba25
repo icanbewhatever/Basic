@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>jsp에서 오라클 접속하는 예제</h2>
+	
+	<%
+		//라이브러리 드라이버를 호출
+		try{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			out.println("라이브러리 로드 성공!");
+		}catch(Exception e){
+			out.println("라이브러리 로드 실패!");
+		}
+	
+		//라이버리가 추가되면 서버를 재가동 한다
+	%>
+	
+	
+</body>
+</html>

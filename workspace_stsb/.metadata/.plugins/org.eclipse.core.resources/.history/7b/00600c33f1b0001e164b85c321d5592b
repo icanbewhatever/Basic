@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ page import = "java.sql.*" %>
+<%@ page import = "utils.DBConfig" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<%
+		out.println("직원정보처리");
+		String empid = request.getParameter("empid");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String contact = request.getParameter("contact");
+	
+		//오라클 DB와 접속
+		Connection connection = null;
+       Statement statement = null;
+       ResultSet resultSet = null;
+       
+       // 접속하기 
+       try {
+         connection = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
+          out.println("jsp계정 접속성공");
+       }catch(Exception e) {
+          out.println("jsp계정 접속실패");
+          
+       }      
+	%>
+	
+
+	
+</body>
+</html>

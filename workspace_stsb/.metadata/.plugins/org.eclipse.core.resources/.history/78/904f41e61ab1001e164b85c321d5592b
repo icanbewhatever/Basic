@@ -1,0 +1,89 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/* 부서 목록 */
+	   body {
+	      font-family: Arial, sans-serif;
+	      background-color: #f2f2f2;
+	      margin: 0;
+	      padding: 0;
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+	      height: 100vh;
+	   }
+	   .department-list {
+	      background-color: #fff;
+	      padding: 20px;
+	      border-radius: 5px;
+	      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	   }
+	
+	   table {
+	      width: 100%;
+	      border-collapse: collapse;
+	      margin-top: 20px;
+	   }
+	
+	   th, td {
+	      border: 1px solid #ddd;
+	      padding: 10px;
+	      text-align: left;
+	   }
+	
+	   th {
+	      background-color: #3498db;
+	      color: #fff;
+	   }
+
+</style>
+</head>
+<body>
+
+		<div class="department-list">
+	        <h2>직원 목록</h2>
+	        <button onclick="handleAddButtonClick()">직원 등록</button> <!-- 등록 버튼 추가 -->
+	        <table>
+	            <thead>
+	            <tr>
+	            <th>사원번호</th>
+	                <th>이름</th>
+	                <th>직급</th>
+	                <th>연락처</th>
+	                <th>동작</th> <!-- 새로운 열 추가, 수정과 삭제처리 어디있지?-->
+	                
+	            </tr>
+	            </thead>
+	            <tbody>
+	           
+	            <%
+	            	for(int i=0; i<emplist.size(); i++){ //왜 size 써주지?
+	            		EmpVo temp = emplist.get(i);
+	            			         
+	            %>
+	            <tr>
+	            	<td><%= temp.getEmployee_id() %></td>   <!-- 1000 -->
+	                <td><%= temp.getLast_name() %></td> 	<!--John Doe -->
+	                <td><%= temp.getJob_id() %></td>		<!-- 매니저 -->
+	                <td><%= temp.getPhone_number() %></td>	<!-- 010-1234-5678 -->
+	                <td><button onclick="handleButtonClick(0)">수정 처리</button> <!-- 버튼 추가 -->
+	                <button onclick="handleButtonClick(0)">삭제 처리</button><!-- 버튼 추가 -->
+	                
+	                </td> <!-- 상세보기 버튼 추가 ???-->
+	            </tr>
+	            <%
+	            	}
+	            %>
+	            	            <!-- 다른 직원들의 정보도 추가할 수 있습니다.?? -->
+	            </tbody>
+	        </table>
+	    </div>
+</body>
+</html>

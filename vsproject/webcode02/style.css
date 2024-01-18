@@ -1,0 +1,6 @@
+*{ border: 1px solid green;} 
+h2 {color: blue; background-color: yellow;}
+#descript {background-color: pink;}
+.bold{font-weight: bold;}
+#second>li {color: red;}
+#first li {color: blue;}

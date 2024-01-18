@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>타이틀제목</h1>
+    <h2>부제목</h2>
+    <p>제이쿼리 연습</p>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JAVASCRIPT</li>
+    </ul>
+    <!-- 제이쿼리 연동 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    
+    <!-- 태그선택자 -->
+    <script>
+    $(document).ready(
+        function(){
+            $("h2, h1").css("color","green");
+            //부제목 초록
+            // $('h2').css('color', 'green');
+            // 단락글 청색
+            $('p').css({'color':'darkblue', 'background-color':'gray'});
+            $('li').css({'color':'brown', 'background-color':'violet'});
+        }
+        );
+    </script>
+</body>
+</html>

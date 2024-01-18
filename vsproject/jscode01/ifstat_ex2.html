@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>뱅기 이미지 변경</h2>
+
+    <p>다음 버튼을 누르면 1번 > 2번 > 3번 > 다시 1번 </p>
+
+    <img src="airplane1.jpg" alt="비행기" id="imageElement">
+    <br>
+    <input type="button" value="다음이미지" onclick="changeImage()">
+
+    <script>
+
+        var number = 1;
+        var imageElement = document.getElementById('imageElement');
+
+        function changeImage(){
+           
+          // 다음 이미지 인덱스로 변경
+          if (number < 3) { 
+                number++;
+            } else {
+                number = 1;   //어떻게 이게 반복되는 걸까??
+            }
+            // 현재 인덱스에 해당하는 이미지 경로 설정
+            if (number === 1) {
+                imageElement.src = 'airplane1.jpg';
+            } else if (number === 2) {  
+                imageElement.src = 'airplane2.jpg';
+            } else if (number === 3) {
+                imageElement.src = 'airplane3.jpg';
+            } // 왜 여기서 부등호가 === 세개인거지??? 문자 '일'과 숫자1을 명확히하기 위해서       
+        }
+        
+    </script>
+
+
+</body>
+</html>

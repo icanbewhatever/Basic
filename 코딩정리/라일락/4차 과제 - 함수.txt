@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>회원가입 - validation check</h2>
+
+    <!-- <form action=""> -->
+        <!-- <p><input type="text" name="" id="username" placeholder="아이디 입력"></p> -->
+        <p><input type="text" name="" id="username" placeholder="아이디 입력"></p>
+        <p><input type="password" name="" id="password" placeholder="비밀번호 입력"></p>
+        <p><input type="password" name="" id="confirmPassword" placeholder="비밀번호 확인"></p>
+        <p><input type="email" name="" id="email" placeholder="이메일 입력"></p>
+        <p><input type="button" value="회원가입" onclick="validateForm()"></p>
+        <p id="result"></p>
+    <!-- </form> -->
+
+
+    <script>
+
+        function validateForm(){
+
+            var id = document.getElementById("username").value;
+            var pw = document.getElementById("password").value;
+            var conPw =  document.getElementById("confirmPassword").value;
+            var result = document.getElementById("result");
+
+            if(id == ""){
+                result.innerHTML = "아이디 입력확인";
+            //     alter("아이디를 입력해주세요")
+            }else if(pw == ""){
+                result.innerHTML = "비밀번호 입력확인";
+            }else if(pw != conPw){
+                result.innerHTML = "비밀번호가 일치하지 않습니다";
+            }else{
+                result.innerHTML = id + "님 가입 성공!";
+            }
+        
+        }
+
+    </script>
+</body>
+</html>

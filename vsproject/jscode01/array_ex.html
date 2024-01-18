@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>쇼핑몰 제품목록 출력</h2>
+
+    <script>
+        var products = ["모니터" , "키보드", "마우스", "공유기", "프린터"]; 
+        //제품: 전산제품 - 모니터, 키보드, 마우스, 공유기, 프린터
+
+        //제품 총 갯수 출력
+        console.log('제품갯수', products.length);
+        
+        //3번째 제품명을 출력
+        console.log('3번째 제품:', products[2]);
+
+        //제품 추가: 헤드셋 > 전체 목록 출력
+        products.push('헤드셋');
+
+        for(var i =0; i<products.length; i++){
+            console.log(products[i]);
+        }
+        
+    </script>
+</body>
+</html>

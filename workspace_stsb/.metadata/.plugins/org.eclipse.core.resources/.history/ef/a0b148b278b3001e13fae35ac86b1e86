@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%@ page import = "java.sql.*" %> <!-- 오라클 쿼리 동작 라이버리-->
+<%@ page import = "utils.DBConfig" %><!-- 다른경로의 -->
+<%@ page import = "vo.BoardVo" %> <!-- 게시글 한개 정보들 -->
+<%@ page import = "java.util.*" %> <!-- 게시글 목록 ArrayList -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+	PreparedStatement pstmt = null;
+	ResultSet resultSet = null;		//select 결과를 저장하는 정보
+	ArrayList<BoardVo> boardList = new ArrayList<>();
+	
+	try{
+		String sql = "SELECT NUM, SUBJECT, NAME, HIT FROM BO_FREE ORDER BY NUM DESC";
+		pstmt = connection.prepareStatement(sql);
+		// 조건이 있으면 psmt.setString()추가
+		resultSet = pstmt.executeQuery();//select인 경우 사용
+		while(resultSet.next()){
+	%>
+</body>
+</html>

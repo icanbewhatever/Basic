@@ -1,0 +1,95 @@
+--4.MERGE 문
+목표: 2000년 10월부터 12월 사이에 월 매출을 기준으로
+    적정 매출을 달성한 사원에게 더 많은 보너스를 지급함
+사용 테이블: 사원 employees, 판매 sales
+
+문제1. 해당 월에 매출을 달성한 사원은 누구인가?
+매출을 달성한 사원 목록ㅇ을 ex3_3 테이블에 삽입
+사원번호가 사원테이블과 판매 테이블에 둘 다 있어야 함
+2000년도 10월~ 12월 사이에 월 매출을 기준으로 함
+
+
+DROP TABLE ex3_3;
+CREATE TABLE ex3_3(
+    employee_id NUMBER,
+    bonus_amt   NUMBER DEFAULT 0
+);
+
+INSERT INTO ex3_3 (employee_id)
+SELECT e.employee_id
+FROM employees e, sales s
+WHERE e.employee_id = s.employee_id
+    AND s.SALES_MONTH BETWEEN 200010 AND 200012
+GROUP BY e.employee_id
+;
+
+SELECT * FROM ex3_3 ORDER BY employee_id;
+
+ex3_3 테이블 => 매출 달성한 사람 = 보너스 받는 사람 
+1. 관리자 사번 manager_id가 146번인 사원을 찾아 SELECT 
+
+2. ex3_3 테이블에 있는 사원의 사번과 일치하면
+보너스 bonus_amt를 자신의 급여salary 1%를 보너스로 갱신
+
+3. ex3_3 테이블에 있는 사원 사번 일치하지 않으면
+1의 결과이 사원을 신규로 입력 (보너스 금액은 0.1%)
+급여가 8000 미만인 사람만
+
+SELECT employee_id, manager_id
+FROM employees
+WHERE manager_id = 146;
+
+SELECT employee_id, manager_id, salary * 0.01
+FROM employees
+WHERE manager_id = 146;
+
+1% : salary * 0.01
+0.1% : salary * 0.01
+
+SELECT * FROM ex3_3 ORDER BY employee_id;
+
+-- INSERT INTO ex3_3 VALUES(300,0); -300은 EMPLOYEES테이블에 없어서 안나옴
+
+-- 보너스 1% 받는 사람 명단 및 보너스 금액
+SELECT employee_id, manager_id, salary, salary*0.01
+FROM employees
+WHERE employee_id IN (SELECT employee_id FROM ex3_3);
+
+
+SELECT employee_id FROM ex3_3;
+
+-- 보너스 0.1% 받는 사람 명단 및 보너스 금액
+SELECT employee_id, manager_id, salary, salary*0.001
+FROM employees
+WHERE manager_id = 146
+    AND employee_id NOT IN (SELECT employee_id FROM ex3_3)
+    ;
+
+SELECT employee_id, manager_id, salary
+FROM   employees
+WHERE  manager_id = 146
+;
+
+
+MERGE INTO ex3_3 d
+    USING (SELECT employee_id, manager_id, salary
+           FROM   employees
+           WHERE  manager_id = 146) t
+    ON (d.employee_id = t.employee_id)
+WHEN MATCHED THEN 
+    UPDATE SET d.bonus_amt=t.salary * 0.01
+        DELETE WHERE t.employee_id = 161
+WHEN NOT MATCHED THEN
+    INSERT ( d.employee_id, d.bonus_amt) VALUES (t.employee_id, t.salary * 0.001)
+    WHERE t.salary < 8000;
+
+SELECT * FROM ex3_3;
+
+
+
+
+
+
+
+
+

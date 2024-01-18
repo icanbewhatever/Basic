@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>두개의 숫자를 입력해 합계를 출력</h2>
+
+    <p>
+        <b>첫번째 숫자: <input type="text" id="num1"> </b>
+    </p>
+
+    <p>
+        두번째 숫자: <input type="text" id="num2">
+    </p>
+
+    <p></p>
+
+    <p>
+        <input type="button" value="합계계산" id="addSum"> 합계출력: 
+    </p>
+    <!-- jQuery 사용해보자 -->
+    <!-- 1. import jQuery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <!-- 2. jQuery click 이벤트 사용 -->
+    <script>
+        //함수설명: ready - HTML이 모두 그려지면 동작
+        $(document).ready( function(){
+            // alert('ready 이벤트 확인')
+
+            //버튼 아이디를 jq로 선택함, 클릭 후 function
+            $('#addSum').click(function(){
+                //첫번째 숫자를 가져와서 출력해라
+                num1 = parseInt($('#num1').val()); //.val(): 폼의 글자를 읽거나 변경하는 함수, form인지 어떻게 알지?
+                // console.log('첫번째 숫자', num1);
+                num2 = parseInt($('#num2'). val()); //숫자와 문자를 구별해주기 위해서 앞에 parseInt()를 넣어준다
+                sum = num1 + num2;
+                console.log('합계: ', sum);
+            });
+        });
+    </script>
+
+
+</body>
+</html>

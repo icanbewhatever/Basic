@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+    <h2>게시글 제목</h2>
+    <div class="meta-info">
+      <span>작성자:</span> 작성자 이름<br>
+      <span>작성일:</span> 2024-01-14
+    </div>
+    <div class="content">
+      <p>게시글 내용이 여기에 들어갑니다. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit sit amet nunc tincidunt facilisis. Nulla facilisi.</p>
+    </div>
+ <div class="back-link">
+      <button onclick="goBack()">목록으로 돌아가기</button>
+    </div>
+
+    <!-- 댓글 섹션 시작 -->
+    <div class="comments-section">
+      <h3>댓글</h3>
+
+      <!-- 댓글 작성 폼 -->
+      <div class="comment-form">
+        <textarea id="commentText" placeholder="댓글을 작성하세요"></textarea>
+        <button onclick="postComment()">댓글 작성</button>
+      </div>
+
+      <!-- 댓글 목록 -->
+      <ul class="comment-list">
+        <li class="comment">댓글 1: 여기에 댓글 내용이 들어갑니다.</li>
+        <li class="comment">댓글 2: 다른 사용자의 댓글 내용이 들어갑니다.</li>
+      </ul>
+    </div>
+    <!-- 댓글 섹션 끝 -->
+
+    <!-- 삭제 버튼 -->
+    <button class="delete-button" onclick="deletePost()">게시글 삭제</button>
+
+  </div>
+</body>
+</html>

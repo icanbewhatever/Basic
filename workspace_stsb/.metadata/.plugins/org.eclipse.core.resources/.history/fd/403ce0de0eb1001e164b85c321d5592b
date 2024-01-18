@@ -1,0 +1,9 @@
+package vo;
+
+public class EmpVo {
+
+	String employee_id; //ctrl + shift +y 소문자로 바뀐다
+	String last_name;
+	String job_id;
+	String phone_number;
+}

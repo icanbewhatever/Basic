@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>사용자 인증 처리</h2>
+	
+	<%
+		String empid = request.getParameter("employeeId"); //loginform에 작성된 name 값 넣어주기
+		String userpw = request.getParameter("userPw");
+	%>
+	
+	<%= empid%>
+	<br>
+	<%= userpw%>
+</body>
+</html>

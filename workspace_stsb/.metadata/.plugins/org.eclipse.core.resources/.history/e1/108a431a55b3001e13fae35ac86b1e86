@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="board-container">
+	    <h2>게시판 목록</h2>
+	
+	    <div class="board-item">
+	        <div class="bbshead number">번호</div>
+	        <div class="bbshead title"><a href="#">제목</a></div>
+	        <div class="bbshead author">작성자</div>
+	        <div class="bbshead views">조회수</div>
+	    </div>
+	    
+	    <div class="board-item">
+	        <div class="number">1</div>
+	        <div class="title"><a href="#">게시물 제목 1</a></div>
+	        <div class="author">작성자1</div>
+	        <div class="views">100</div>
+	    </div>
+	    
+	    <div class="board-item">
+	        <div class="number">2</div>
+	        <div class="title"><a href="#">게시물 제목 2</a></div>
+	        <div class="author">작성자2</div>
+	        <div class="views">150</div>
+	    </div>
+	    
+	    <!-- 추가적인 게시물 목록은 필요에 따라 반복해서 추가 -->
+	
+	    <a href="#" class="add-button">새 게시물 작성</a>
+	</div>
+	
+</body>
+</html>

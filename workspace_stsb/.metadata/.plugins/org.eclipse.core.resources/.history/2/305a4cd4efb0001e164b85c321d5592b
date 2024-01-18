@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<%
+		out.println("직원정보처리");
+		String empid = request.getParameter("empid");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String contact = request.getParameter("contact");
+
+	%>
+	
+	<%= empid %>
+	
+</body>
+</html>
