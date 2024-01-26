@@ -317,6 +317,7 @@
 	Exception exception = null;
 	
   try {
+	  Class.forName("oracle.jdbc.driver.OracleDriver"); //오라클이 작동이 잘 안될때 넣어주면 좋다
 		// 1. JDBC로 Oracle연결
 	  conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
 	  System.out.println("오라클 접속 성공");

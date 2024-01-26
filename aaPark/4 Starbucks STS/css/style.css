@@ -84,7 +84,7 @@ body {
 }
 
 .card-body .title {
-    width: 70%;
+    width: 50%;
     text-align: left;
 }
 
@@ -199,7 +199,7 @@ body {
     padding: 10px;
 }
 
-.btn-w a {
+.btn-w a, input.btn-w {
     background-color: tomato;
     padding: 10px;
     color: #fff;
