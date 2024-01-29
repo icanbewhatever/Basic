@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper { width: 1024px;}
+        .header {text-align: center; background-color: #060486e5; color: white;
+                 padding: 20px;}
+        .nav { background-color: rgb(6, 160, 6); color: white; border: 1px solid lightgreen;
+                text-align: center;}
+        .nav > ul > li {display: inline-block; padding: 0px 20px 0px 20px;}  
+        #red {color: red;}
+        .news {margin: 50px; }
+        h3 {font-weight:bolder}
+        .content {margin: 50px; border: 1px solid white; padding-bottom: 50px;}
+        .bottem { text-align: center;}
+        .table > td { text-align: center; font-weight: bold; background-color: #cfcdcd85; 
+                    border-bottom: black 1px solid; border-top: 1px solid black; 
+                    } 
+        .text > td {border: 1px solid beige; padding-left: 10px;} 
+        #title {color: blue;}
+        .bottem >p { background-color: rgb(6, 160, 6); padding: 10px 20px 10px 20px;}
+        #first {color: white;}
+        #last { color: red;}
+        img { float: right; padding-top: 60px;}
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="header">
+            <h2>웹페이지 디자인 연구소</h2>
+            <p>school of web</p>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li>HOME</li>
+                <li>PEOPLE</li>
+                <li>CLASS</li>
+                <li id="red">NOTICE</li>
+                <li>PICTURE</li>
+            </ul>
+            <img src="dell.png" alt="dell">
+        </div>
+
+        <div class="news">
+            <h2>공지사항 & 뉴스</h2>
+            <p>2020.05.05 by 관리자</p>
+            <h3>샘플게시판</h3>
+            
+        </div>
+
+        <div class="content">
+              <table border="0" width="700">
+                    <tr class="table">
+                        <td>번호</td>
+                        <td>제목</td>
+                        <td>작성자</td>
+                        <td>날짜</td>
+                        <td>조회수</td>
+                        <td>댓글수</td>
+                    </tr>
+
+                    <tr class="text">
+                        <td>165</td>
+                        <td id="title">새 스티커 상품 출시</td>
+                        <td>admin</td>
+                        <td>2020.06.21</td>
+                        <td>2</td>
+                        <td>0</td>
+                     </tr>
+                
+                     <tr class="text">
+                        <td> 166</td>
+                        <td id="title">입문자 위한 안내</td>
+                        <td>admin</td>
+                        <td>2020.06.25</td>
+                        <td>1</td>
+                        <td>0</td>
+                     </tr>
+
+                     <tr class="text">
+                        <td> 167</td>
+                        <td id="title">웹사이트 개발 도구 소개</td>
+                        <td>admin</td>
+                        <td>2020.06.28</td>
+                        <td>3</td>
+                        <td>0</td>
+                     </tr>
+
+                     <tr class="text">
+                        <td>168</td>
+                        <td id="title">안녕하세요</td>
+                        <td>admin</td>
+                        <td>2020.07.21</td>
+                        <td>1</td>
+                        <td>0</td>
+                     </tr>
+
+                     <tr class="text">
+                        <td> 169</td>
+                        <td id="title">게시판을 오픈했습니다</td>
+                        <td>admin</td>
+                        <td>2020.08.21</td>
+                        <td>2</td>
+                        <td>0</td>
+                     </tr>
+                </table>
+        </div>
+
+        <div class="bottem">
+            <p><dfn id="first">Copywriter &#169 2020  </dfn><dfn id="last">GeneratePress.WebDev</dfn></p>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
