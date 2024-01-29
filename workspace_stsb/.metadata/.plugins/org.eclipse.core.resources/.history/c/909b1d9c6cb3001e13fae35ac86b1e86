@@ -1,9 +1,0 @@
-package vo;
-
-public class BoardVo {
-	
-	private int num;
-	private String subject;
-	private String name;
-	private int hit;
-}
