@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box { width: 300; height: 300px;
+                border: 1px solid black;
+                background-color:  yellow;}
+        h1{ text-align: center;
+            width: 100%; height: 100%; 
+            line-height: 300px; margin: 0;}
+    </style>
+</head>
+<body>
+    
+    <h2>네모 박스 마우스가 올라가면 파란색으로 변경</h2>
+
+    <div id="box" onmouseover="mouseOver()" onmouseout="mouseOut()">
+        <h1 id="text">네모상자</h1>
+    </div>
+
+        <script>
+
+            var box = document.getElementById("box");
+            var txt = document.getElementById("text");
+
+
+            function mouseOver(){
+               
+                txt.innerHTML = "마우스 On";
+                box.style.backgroundColor = "blue";
+            }
+
+            function mouseOut(){
+                txt.innerHTML = "마우스 Out";
+                box.style.backgroundColor = "yellow";
+            }
+        
+            //여기서는 왜 return 을 주지 않았나?
+        </script>
+
+
+</body>
+</html>

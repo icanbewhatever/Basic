@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #slideContainer {overflow: hidden; width: 600px; position: relative; } */
+        #slideContainer { border: 1px solid green; position: relative;}
+        #slideList { width: 1200px; }
+        .slideItem { display: none;}
+        .active {display: block;}
+
+        /* 버튼 디자인 */
+        .slideButton { position: absolute; top: 50%; font-size: 20px;
+                       background-color: black; color: white;
+                       padding: 10px; border: none; margin-top: -20px; }
+        #nextButton { right: 0;}
+        #prevButton { left: 0;}
+    </style>
+</head>
+
+<body>
+    <h2>이미지 바꾸는 예제</h2>
+
+    <div id="slideContainer">
+        <div id="slideList">
+            <div class="slideItem active"><img src="1.jpg" alt=""></div>
+            <div class="slideItem"><img src="2.jpg" alt=""></div>
+            <div class="slideItem"><img src="3.jpg" alt=""></div>
+        </div>
+
+        <button id="prevButton" class="slideButton">&#10094</button> 
+        <button id="nextButton" class="slideButton">&#10095</button>
+                          <!-- 화살표 왼쪽 &#10094 오른쪽 &#10095 -->
+
+    </div>
+    <!-- 1. jq lib import -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        //초기 인덱스 값
+    
+           
+            var slideIndex = 1;
+           
+
+            $(function(){
+
+
+                $('#prevButton').click(function(){
+        
+                    $('.slideItem').each(function(index, value){
+                        // active 제거
+                        $(this).removeClass('active');
+                        ///console.log(index);
+                        
+                    });
+
+                    if(slideIndex<=1) {//1, 3, 2
+                        slideIndex=3; //3
+                    }else{
+                        slideIndex--;//2,1
+                    }
+                    console.log(slideIndex);// 3,2,1
+
+                    $('.slideItem').each(function(index, value){
+                        if(index == slideIndex-1){ //2,1,0
+                            $(this).addClass('active');
+                        }
+
+                    });
+                                        
+                });
+                 
+                
+
+                $('#nextButton').click(function(){
+                    //다음 이미지 경고창 - alter('다음 이미지');
+                  
+                    // 이미지 영역 slideItem 모두 선택 $('.slideItem').length; 이미지 갯수
+                    $('.slideItem').each(function(index, value){
+                        // active 제거
+                        $(this).removeClass('active');
+                        //console.log(index);
+                        
+                    });
+
+                    if(slideIndex>=3) {
+                        slideIndex=1;
+                        }else{
+                            slideIndex++;
+                        }
+                    console.log(slideIndex);
+                    //다음 누르면 slideIndex 증가
+                  $('.slideItem').each(function(index, value){
+                        if(index == slideIndex-1){
+                            $(this).addClass('active');
+                        }
+
+                    });
+                    
+                });                 
+              
+
+            });
+                
+        
+     
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="score1">점수1:</label>
+        <input type="number" id="score1" value= "90">
+    </div>
+
+    <div>
+        <label for="score2">점수2:</label>
+        <input type="number" id="score2" value= "87">
+    </div>
+
+    <div>
+        <label for="score3">점수3:</label>
+        <input type="number" id="score3" value= "70">
+    </div>
+
+    <input type="button" value="합계" onclick="sum()">
+    <!-- <button onclick="sum()">합계</button> -->
+
+    <div id="result"></div>
+
+    <script>
+        function sum(){
+            var score1 = parseInt(document.getElementById("score1").value);
+            var score2 = parseInt(document.getElementById("score2").value);
+            var score3 = parseInt(document.getElementById("score3").value); 
+            //parseInt가 왜 필요한가? .value의 의미, score 변수이름과 안의 값의 이름은 같이써도 왜 상관없나?
+            
+            var total = score1 + score2 + score3;
+
+            document.getElementById("result").innerHTML= "합계" + total;
+        }
+    </script>
+</body>
+</html>

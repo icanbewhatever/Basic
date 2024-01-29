@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>함수 복습 예제</h2>
+    <p id="example">결과 출력</p>
+    <p id="example2">함수사용 결과 출력</p>
+
+    <script>
+
+        //함수없이 1-n 까지 합 구하기
+        // 1. 합을 저장할 변수 선언
+        var sum = 0;
+
+        // 2. n이란 변수 선언
+        var n = 20; //임이의 숫자 저장
+
+        //3. for문으로 합계구하기
+        for(let i =1; i<=n; i++){
+            sum += i; //누적합
+        }
+
+        //출력: 화면에 출력
+        document.getElementById("example").innerHTML = "결과출력: " + sum;
+
+
+        //함수로 구현
+
+        function sumToNum(num){
+            let rst = 0;
+            for(let i=1; i<=num; i++){
+                rst += i;
+            }
+            return rst;
+        }
+        document.getElementById("example2").innerHTML = "함수결과출력: " + sumToNum(20);
+                
+    </script>
+</body>
+</html>

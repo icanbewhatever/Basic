@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tr-bg{background-color: purple;}
+    </style>
+</head>
+<body>
+    <h2>테이블 행에 마우스가 올라가면 보라색으로 변경</h2>
+
+    <table border="1">
+
+        <tr>
+            <td>이름</td>
+            <td>이메일</td>
+            <td>전화번호</td>
+        </tr>
+
+        <tr>
+            <td>박대용</td>
+            <td>asdf</td>
+            <td>1235</td>
+        </tr>
+
+        </table>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(function(){
+
+            $("tr").mouseenter(function(){
+                $(this).addClass("tr-bg");
+            });
+      
+            $("tr").mouseleave(function(){
+                $(this).removeClass("tr-bg");
+            });
+      
+        });
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://www.naver.com/"></form>
+
+    <fieldset>
+        <legend>상세정보:</legend>
+        <label>이름: <input type="text" name="name" size="30" maxlength="100"></label><br/>
+        <label>이메일: <input type="text" name="email" size="30" maxlength="100"></label><br/>
+    </fieldset><br/>
+
+    <fieldset>
+        <legend>리뷰</legend>
+        <label for="hear-about">사이트를 알게 된 경의는?</label>
+    <select name="website" id="hear-about">
+        <option value="google">구글</option>
+        <option value="naver">네이버</option>
+    </select>
+    <p></p>
+        <br/><label for="revisiting-about">다시 방문하시겠습니까?</label>
+        <label><input  type="radio" name="yes" value="y"> 네</label>
+        <label><input  type="radio" name="no" value="n"> 아니요</label>
+        <label><input  type="radio" name="maybe" value="m"> 모르다</label>
+    <p></p>
+    <p>의견:</p>
+    <textarea name="comments" cols="40" rows="3"></textarea>
+    <p></p>
+    <label><input  type="checkbox" name="subscribe" value="checked"/> 이메일 업데이트에 가입</label><br/>
+    <input type="submit" value="리뷰 전송"/>
+    </fieldset>
+
+</body>
+</html>

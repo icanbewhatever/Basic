@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imageContainer { border: 2px solid black;}
+    </style>
+</head>
+<body>
+    <div class="imageContainer">
+        <img src="1.jpg" alt="">
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(function(){
+            //mouseover 이벤트
+            $('.imageContainer').mouseover(function(){
+                $(this).css('border-color', 'red');
+            });
+            //mouseout 이벤트
+            $('.imageContainer').mouseout(function(){
+                $(this).css('border-color', 'black');
+            });
+        });
+    </script>
+</body>
+</html>
