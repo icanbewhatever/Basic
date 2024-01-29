@@ -1,0 +1,47 @@
+linux ls명령어: 파일리스트 보기(-al -> 숨김파일 및 폴더까지 show)
+linux cd명령어: 폴더 이동
+
+git vs github
+git: 소스 버전 관리 시스템(프로그램)
+ex) 1일차: html, css, javascript 코드 작성
+     2일차: java작성 코드 작성
+     3일차: sql작성
+github: git을 이용해서 클라우드 관리할 수 있게 해주는 사이트
+
+git config --global user.email teacher@naver.com -> git에 내가 누구인지 세팅1
+git config --global user.name teacher -> git에 내가 누구인지 세팅2
+
+git init -> 로컬pc에 git설정 세팅
+
+git add 파일명1 -> 새로 생성된 파일명1을 commit할 수 있도록 Staged Area에 등록
+git add 파일명1 파일명2 -> 새로 생성된 파일명1, 파일명2 파일을 commit할 수 있도록 Staged Area에 등록하는 명령어
+git add . -> 현재 디렉토리(폴더)의 모든 새로 생성된 파일을 commit할 수 있도록 Staged Area에 등록하는 명령어
+
+git commit -m '메시지 내용' -> git 로컬에 반영(스냅샵, 해시 생성)
+
+git remote add origin 원격저장지주소repostory: 원격 저장소(github 등)을 등록
+
+git push -> 로컬 작업한 commit의 내용을 원격저장소(github)에 저장
+git pull: 원격저장소에 있는 내용들을 전부 로컬git에 저장(+ local에 있는 내용들이랑 merge)
+
+git branch: 현재 로컬에 있는 모든 브랜치를 보여주는 명령어
+git branch -r: 현재 원격에 있는 모든 브랜치를 보여주는 명령어
+git branch -a: 현재 로컬과 원격에 있는 모든 브랜치를 보여주는 명령어
+git branch 브랜치명:  로컬 브랜치명을 만드는 명령어
+git branch -d 브랜치명:  로컬 브랜치명을 삭제하는 명령어
+* 원격 브랜치만 삭제 -> git push origin -d 브랜치명 
+
+
+git checkout 브랜치명: 브랜치명으로 작업영역을 변경
+git checkout -b 만들브랜치명: 만들브랜치명이 만들어지고 바로 만들브랜치명으로 checkout해줌
+
+origin: 원격에서 사용하는 최상위 원격 브랜치명
+HEAD: 현재 작업 브랜치의 위치
+checkout: 브랜치와 브랜치 사이를 이동
+
+git 충돌(confilct) 해결: 서로 다른 브랜치에서 같은 파일 혹은 같은 줄의 있는 내용들을 바꿀 때 주로 발생.
+git pull request(remote merge): gihub에서 remote 브랜치들을 merge해 주는 기능
+  
+webpage url -> 닉네임.github.io/레포지토리이름
+
+https://heropcode.github.io/GitHub-Responsive/img/logo.svg
