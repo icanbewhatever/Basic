@@ -68,7 +68,7 @@
    				return;
    			}
    			//실제 form의 action 값으로 전송
-   			document.getElementbyId('form1').submit();
+   			document.getElementById('form1').submit();
    			//빈 텍스트 박스 처리
    	
    		}
