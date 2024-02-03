@@ -58,13 +58,13 @@
 	  requester = multi.getParameter("requester");
 		brandname = multi.getParameter("brandname"); //브랜드
 		
-		itemtype = multi.getParameter("itemtype");;//종류
+		itemtype = multi.getParameter("itemtype");//종류
 		
-		orderplace = multi.getParameter("orderplace");;//의뢰처
+		orderplace = multi.getParameter("orderplace");//의뢰처
 		
-		itemname = multi.getParameter("itemname");;//제품이름
+		itemname = multi.getParameter("itemname");//제품이름
 		
-		itemsize = multi.getParameter("itemsize");;//사이즈
+		itemsize = multi.getParameter("itemsize");//사이즈
 		
 		quantity = Integer.parseInt(multi.getParameter("quantity"));//수량
 		

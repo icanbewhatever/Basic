@@ -6,15 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/orderProduct.css">
+    <link rel="icon" href="./favicon.ico" />
     <!-- 구글 아이콘 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
      <!-- reset.css -->
    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <script src="./js/jquery-3.7.1.min.js"></script>
    <title>주문 의뢰서</title>
+   
 </head>
 
 <body>
+<%@ include file="header.jsp" %>
+
     <div class="inner"> 
       <!-- 검색어 입력 -->
       <div class="top">
@@ -38,8 +42,7 @@
               <div class="firstline">
                 <div class="img-file">
                   <input type="file" class="btn file-input" name="filecontent" id="filecontent">
-                  <label class="img-file-label" for="img-file" style="width:30px"></label>
-                  <button type="submit" onclick="" class="btn btn-img">업로드하기</button>
+                  <label class="img-file-label" for="img-file" style="width:30px"></label>               
                 </div>
                 <div class="requester">
                   작성자: <input type="text" name="requester" id="requester">
@@ -53,9 +56,9 @@
                 </div>
                 <div class="item-type">
                 종류: <select name="itemtype" id="itemtype">
-                  <option value="none">선택</option>
-                  <option value="shirt" selected>셔츠</option>
-                  <option value="longsleeves" selected>긴팔</option>
+                  <option value="none" selected>=== 선택 ===</option>
+                  <option value="shirt">셔츠</option>
+                  <option value="longsleeves">긴팔</option>
                   <option value="shortsleeves">반팔</option>
                   <option value="hoodie">후디</option>
                   <option value="polo">폴로</option>
@@ -72,9 +75,9 @@
                 </div>
                 <div class="item-size">
                   사이즈: <select name="itemsize" id="itemsize">
-                  <option value="none">=== 선택 ===</option>
-                  <option value="xs" selected>XS</option>
-                  <option value="s" selected>S</option>
+                  <option value="none" selected>=== 선택 ===</option>
+                  <option value="xs">XS</option>
+                  <option value="s">S</option>
                   <option value="m">M</option>
                   <option value="l">L</option>
                   <option value="xl">XL</option>
@@ -86,11 +89,11 @@
               </div>
 
               <div class="item last-info">
-                가슴:<input type="text" name="chest" id="chest" placeholder="cm">
-                총장:<input type="text" name="frontlength" id="frontlength" placeholder="cm">
-                소매길이:<input type="text" name="sleevelength" id="sleevelength" placeholder="cm">
-                어깨단면:<input type="text" name="backwidth" id="backwidth" placeholder="cm">
-                소매단면:<input type="text" name="armwidth" id="armwidth" placeholder="cm">
+                <div>가슴: <input type="text" name="chest" id="chest" placeholder="cm"></div>
+                <div>총장: <input type="text" name="frontlength" id="frontlength" placeholder="cm"></div>
+                <div>소매길이: <input type="text" name="sleevelength" id="sleevelength" placeholder="cm"></div>
+                <div>어깨단면: <input type="text" name="backwidth" id="backwidth" placeholder="cm"></div>
+                <div>소매단면: <input type="text" name="armwidth" id="armwidth" placeholder="cm"></div>
               </div>
 
               <div class="comment">

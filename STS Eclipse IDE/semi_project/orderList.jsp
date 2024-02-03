@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문 목록</title>
+    <link rel="icon" href="./favicon.ico" />
     <!-- 구글 아이콘 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
      <!-- reset.css -->
@@ -21,6 +22,7 @@
 </head>
 
 <body>
+<%@ include file="header.jsp" %>
 
 <%
 	String searchText = request.getParameter("search");
@@ -41,7 +43,7 @@
       </div>
       
  			<div class="wrapper">
-        <div class="header"><a href="#"><h1>관리자 주문 목록</h1></a></div>
+        <div class="header">관리자 주문 목록</div>
         
         
         <div class="content-name">
@@ -73,20 +75,22 @@
 	  
 		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
 	 	stmt = conn.createStatement();	// 2-1. Statement 생성
-	 	rs = stmt.executeQuery("SELECT ORDER_NUM, ORDER_DATE, REQUESTER, ITEM_NAME, ORDER_PLACE FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE '%" + searchText + "%' ORDER BY ORDER_NUM DESC fetch first 10 rows only"); // 2-2. SQL 쿼리 실행
+	 	rs = stmt.executeQuery("SELECT ORDER_NUM, ORDER_DATE, REQUESTER, ITEM_NAME, ORDER_PLACE FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE '%" + searchText + "%' ORDER BY ORDER_NUM DESC fetch first 5 rows only"); // 2-2. SQL 쿼리 실행
 		
 	 	// 3. rs로 데이터 가져온 걸 웹에 보여주기 -> 쿼리 실행 결과 출력
 	 	while(rs.next()) {
 %>     
        
         <div class="content-box">
+        	<div>
             <div class="content_no"><%= rs.getInt("ORDER_NUM") %></div>
-            <div class="content_name"><%= rs.getString("ITEM_NAME") %></div>
+            <div class="content_name"><a href="./orderProductUpdateForm.jsp?ordernum=<%= rs.getInt("ORDER_NUM") %>" style="color: black;"><%= rs.getString("ITEM_NAME") %></a></div>
             <div class="orderplace"><%= rs.getString("ORDER_PLACE") %></div>
             <div class="content_requester"><%= rs.getString("REQUESTER") %></div>
             <div class="content_date"><%= rs.getDate("ORDER_DATE") %></div>
             <div class="delete"><button style="cursor: pointer;" onClick="javascript: noticeDelete(<%= rs.getInt("ORDER_NUM") %>);">X</button></div>
-        </div>
+        	</div>
+       </div>
 <% 		 		
 	 	}
   } catch(Exception e) {
