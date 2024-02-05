@@ -18,7 +18,8 @@
      <!-- reset.css -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" />
    <link rel="stylesheet" href="./css/orderList.css" />
-   <script src="./js/jquery-3.7.1.min.js"></script>   
+   <script src="./js/jquery-3.7.1.min.js"></script>
+   <script defer src="./js/order.js"></script>
 </head>
 
 <body>
@@ -47,11 +48,11 @@
         
         
         <div class="content-name">
-            <div class="content_no">번호</div>
-            <div>제품 이름</div>
-            <div>의뢰처</div>
-            <div>작성자</div>
+            <div class="content_no">주문번호</div>
+            <div>상태</div>
             <div>주문일자</div>
+            <div>제품 이름</div>
+            <div>주문수량</div>        
             <div class="delete">삭제</div>
         </div>
 <%
@@ -75,7 +76,7 @@
 	  
 		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
 	 	stmt = conn.createStatement();	// 2-1. Statement 생성
-	 	rs = stmt.executeQuery("SELECT ORDER_NUM, ORDER_DATE, REQUESTER, ITEM_NAME, ORDER_PLACE FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE '%" + searchText + "%' ORDER BY ORDER_NUM DESC fetch first 5 rows only"); // 2-2. SQL 쿼리 실행
+	 	rs = stmt.executeQuery("SELECT ORDER_NUM, STATUS, ORDER_DATE, ITEM_NAME, QUANTITY FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE '%" + searchText + "%' ORDER BY ORDER_NUM DESC fetch first 5 rows only"); // 2-2. SQL 쿼리 실행
 		
 	 	// 3. rs로 데이터 가져온 걸 웹에 보여주기 -> 쿼리 실행 결과 출력
 	 	while(rs.next()) {
@@ -84,11 +85,11 @@
         <div class="content-box">
         	<div>
             <div class="content_no"><%= rs.getInt("ORDER_NUM") %></div>
-            <div class="content_name"><a href="./orderProductUpdateForm.jsp?ordernum=<%= rs.getInt("ORDER_NUM") %>" style="color: black;"><%= rs.getString("ITEM_NAME") %></a></div>
-            <div class="orderplace"><%= rs.getString("ORDER_PLACE") %></div>
-            <div class="content_requester"><%= rs.getString("REQUESTER") %></div>
+            <div class="status"><%= rs.getString("STATUS") %></div>
             <div class="content_date"><%= rs.getDate("ORDER_DATE") %></div>
-            <div class="delete"><button style="cursor: pointer;" onClick="javascript: noticeDelete(<%= rs.getInt("ORDER_NUM") %>);">X</button></div>
+            <div class="content_name"><a href="./orderProductUpdateForm.jsp?ordernum=<%= rs.getInt("ORDER_NUM") %>" style="color: black;"><%= rs.getString("ITEM_NAME") %></a></div>
+            <div class="quantity"><%= rs.getInt("QUANTITY") %></div>                 
+            <div class="delete"><button style="cursor: pointer; font-size: 10px;" onClick="javascript: noticeDelete(<%= rs.getInt("ORDER_NUM") %>);">X</button></div>
         	</div>
        </div>
 <% 		 		
@@ -108,7 +109,20 @@
 
       </div>
     </div>
-   
+ 
+  <%@ include file="footer.jsp" %>
+  
+  
+   <!-- comments -->
+	<nav id="nav">
+    <ul>
+      <li class="active js">Javascript</li>
+      <li class="active ts">Typescript</li>
+      <li class="active node">Node.js</li>
+    </ul>
+  </nav>
+ 
+  
 		<script>
     	function searchText() {
     		location.href = "./orderList.jsp?search=" + $('#search-text').val();
@@ -120,8 +134,8 @@
     		}
     	}
     	
- 
     </script>
-    
+  
+  
 </body>
 </html>

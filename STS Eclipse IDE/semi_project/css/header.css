@@ -64,3 +64,28 @@ header .login button:hover{
 	background-color: #0B60B0;
 	color: #F0EDCF;
 }
+
+footer {
+	margin-top: 40px;
+	padding-top:40px;
+	display: block;
+	position:static;
+	bottom:0;	
+	left: 17.8%;
+	height:90px;
+	border-top: 1px solid #c8c8c8;
+	overflow: hidden;
+	
+}
+
+footer div {
+	margin: 20px 50px;
+	color: gray;
+	font-size: 10px;
+	text-align: center;
+}
+
+footer img{
+	width:20px;
+	height:20px;
+}

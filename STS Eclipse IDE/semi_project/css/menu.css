@@ -70,3 +70,4 @@ font-family: 'SejonghospitalBold';
 #menubtn:checked~#menuUl{
     transform: scaleY(1);
 }
+

@@ -22,5 +22,6 @@
 		</div>
 		<%@ include file="menu.jsp" %>
 	</header>
+	
 </body>
 </html>
