@@ -61,6 +61,7 @@
   margin-left: 10px;
   cursor: pointer;
   }
+ 
   
   
   .inner .top .serach-bar h2 {
@@ -130,7 +131,13 @@
 }
 
 .wrapper .content-box .status.active {
-    transform:translateX(-110px);
+	position:absolute;
+	left: 23%;
+	width: 60px;
+  border: 2px solid green;
+  border-radius: 10px;
+  text-align: center;
+  transform: scale(1.5);
 }
 
 .wrapper .content-box .content_date {
@@ -191,6 +198,7 @@ a {
    right:0;
    background-color:#FFF; 
    border: 1px solid #c8c8c8; 
+   color: #666666;
    height:100vh;
    width: 50vh;
    padding:2em;
@@ -202,17 +210,105 @@ a {
   transform:translateX(0);
 }
 
-#nav ul {  
-  padding:0;
-  margin:0;
-  list-style: none;
+#nav .wrap {
+	width: 450px;
+	height: 800px;
+	margin: 50px auto;
+	position: relative;
 }
 
-#nav ul li {
-  padding:1em 0;
+
+#nav .wrap .orderInfo {
+	width: 400px;
+	height: 40px;
+	margin: auto;
 }
 
-#nav a {
-  color:white;
-  text-decoration: none;
+#nav .wrap .status-info {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 60px;
 }
+
+#nav .wrap .status-info select {
+  width:80px; 
+  height:30px;
+  font-size:15px;
+  border: 1;
+  border-radius: 10px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #c8c8c8;
+}
+
+#nav .wrap .status-info select, input:focus {outline: none;}
+
+#nav .wrap .status-info select:hover {
+  border: 1px solid pink;
+}
+
+#nav .wrap input {
+	width: 120px;
+  height:25px;
+  font-size: 15px;
+  background: #fff;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+}
+
+#nav .content-info {
+	width: 450px;
+	height: 555px;
+	background-color: yellow;
+	display: flex;
+	justify-content: space-between;
+}
+
+#nav .content-info .commenter { 
+	position: absolute;
+	right:25%;
+}
+
+
+#nav .content-info .comment_date { 
+	position: absolute;
+		right:1%;
+}
+
+#nav .followup {
+	display:flex;
+	width: 450px;
+	height: 125px;
+	background-color: pink;
+	margin-top: 15px;
+	position: relative;
+}
+
+#nav .followup.right{
+	margin:auto;
+	justify-content: flex-end;
+}
+
+#nav .followup textarea {
+	position:absolute;
+	bottom:0;
+	right:0;
+	border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  resize: none;
+}
+
+#nav .followup textarea:focus {
+  border: 1px solid #c8c8c8;
+  outline: none;
+}
+
+.wrapper textarea:hover {
+  border: 1px solid pink;
+}
+
+
+
+
+

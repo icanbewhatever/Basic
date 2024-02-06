@@ -10,6 +10,7 @@ a {
   text-decoration: none;
 }
 .inner .top {
+	position: relative;
   display: inline-flex;
   width: 950px;
   height: 70px;
@@ -53,6 +54,12 @@ a {
   cursor: pointer;
 }
 
+ .inner .top .serach-bar #print {
+ 	position: absolute;
+ 	right: 1px;
+ 	background: #FFF;
+ 	color: #4E73DF;
+ }
 
 .inner .top .serach-bar h2 {
   font-size: 20px;
@@ -231,6 +238,7 @@ input:autofill:active {
   border: 1px solid #c8c8c8;
   border-radius: 10px;
   font-size: 15px;
+  resize: none;
 }
 
 .comment textarea:focus {

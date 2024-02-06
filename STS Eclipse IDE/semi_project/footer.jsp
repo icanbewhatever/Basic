@@ -11,7 +11,7 @@
   <footer>
   	<div>
 			<div>이용약관 ·운영정책 ·청소년보호정책 ·위치정보이용약관 ·개인정보처리방침 ·웹접근성안내 ·고객센터</div>
-			<div>Copyright &#169; SM Corp. All rights reserved.<span><img src="./logo.png" alt="logo"></span></div>
+			<div>Copyright &#169; SM Corp. All rights reserved.<span><img src="./img/logo.png" alt="logo"></span></div>
 		</div>
 	</footer>
 </body>

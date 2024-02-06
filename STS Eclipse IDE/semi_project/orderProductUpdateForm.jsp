@@ -35,7 +35,7 @@
 	
 	Exception exception = null;
 	
-	String requester = ""; //작성자
+	String requester = ""; //의뢰자
 	String brandname = ""; //브랜드
 	String itemtype = "";//종류
 	String orderplace = "";//의뢰처
@@ -101,10 +101,9 @@
       <!-- 검색어 입력 -->
       <div class="top">
         <div class="serach-bar"><a href="./orderList.jsp">
-         <span class="material-symbols-outlined">
-            arrow_back
-            </span></a>
+         <span class="material-symbols-outlined">arrow_back</span></a>
          <h2>관리자 주문 목록</h2>
+         		<span id=print class="material-symbols-outlined">print</span>
         </div>
       </div>
       <!-- 주문내용 -->
@@ -125,7 +124,7 @@
                   <label class="img-file-label" for="img-file" style="width:30px"></label>
                 </div>
                 <div class="requester">
-                  작성자: <input type="text" name="requester" id="requester" value="<%= requester %>">
+                  의뢰자: <input type="text" name="requester" id="requester" value="<%= requester %>">
                 </div>
               </div>
 
@@ -182,11 +181,12 @@
         </div>
       </div>
    
+    <%@ include file="footer.jsp" %>
     
 	<script>
    		function prevCheckTextBox() { //console.log('잘 나와?');  			
    			if(!$('#requester').val()) {		//이름 관련 dom
-   				alert('작성자를 입력하세요. 모든 정보를 입력해주세요');		//이름 입력 팝업
+   				alert('의뢰자를 입력하세요. 모든 정보를 입력해주세요');		//이름 입력 팝업
    				$('#requester').focus();		//이름 입력칸으로 포커스 이동
    				
    				return;

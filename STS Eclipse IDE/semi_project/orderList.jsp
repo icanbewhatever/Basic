@@ -5,6 +5,7 @@
 <%@ page import = "java.sql.Statement" %>
 <%@ page import = "java.sql.ResultSet" %>
 <%@ page import = "java.lang.Exception, java.sql.SQLException" %>    
+<%@ page import = "java.sql.*" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -12,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문 목록</title>
-    <link rel="icon" href="./favicon.ico" />
+    <link rel="icon" href="./img/favicon.ico" />
     <!-- 구글 아이콘 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
      <!-- reset.css -->
@@ -65,10 +66,10 @@
 	ResultSet rs = null;
 	
 	Exception exception = null;
+
+	Class.forName("oracle.jdbc.driver.OracleDriver");
 	
   try {
-	  // 0.
-	  Class.forName("oracle.jdbc.driver.OracleDriver");
 	  
 		// 1. JDBC로 Oracle연결
 	  conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
@@ -76,20 +77,23 @@
 	  
 		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
 	 	stmt = conn.createStatement();	// 2-1. Statement 생성
-	 	rs = stmt.executeQuery("SELECT ORDER_NUM, STATUS, ORDER_DATE, ITEM_NAME, QUANTITY FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE '%" + searchText + "%' ORDER BY ORDER_NUM DESC fetch first 5 rows only"); // 2-2. SQL 쿼리 실행
+	 	rs = stmt.executeQuery("SELECT ORDER_NUM, STATUS, ORDER_DATE, ITEM_NAME, QUANTITY, REQUESTER FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE '%" + searchText + "%' ORDER BY ORDER_NUM DESC fetch first 5 rows only"); // 2-2. SQL 쿼리 실행
 		
+	 	int i = 0;
 	 	// 3. rs로 데이터 가져온 걸 웹에 보여주기 -> 쿼리 실행 결과 출력
 	 	while(rs.next()) {
+	 		i++;
 %>     
        
         <div class="content-box">
         	<div>
-            <div class="content_no"><%= rs.getInt("ORDER_NUM") %></div>
+            <div class="content_no"><a href="./orderProductUpdateForm.jsp?ordernum=<%= rs.getInt("ORDER_NUM") %>" style="color: black;"><%= rs.getInt("ORDER_NUM") %></a></div>
             <div class="status"><%= rs.getString("STATUS") %></div>
-            <div class="content_date"><%= rs.getDate("ORDER_DATE") %></div>
+            <div class="content_date"><a href="./orderProductUpdateForm.jsp?ordernum=<%= rs.getInt("ORDER_NUM") %>" style="color: black;"><%= rs.getDate("ORDER_DATE") %></a></div>
             <div class="content_name"><a href="./orderProductUpdateForm.jsp?ordernum=<%= rs.getInt("ORDER_NUM") %>" style="color: black;"><%= rs.getString("ITEM_NAME") %></a></div>
             <div class="quantity"><%= rs.getInt("QUANTITY") %></div>                 
             <div class="delete"><button style="cursor: pointer; font-size: 10px;" onClick="javascript: noticeDelete(<%= rs.getInt("ORDER_NUM") %>);">X</button></div>
+        		<div class="requester" style="display:none"><%= rs.getString("REQUESTER") %></div>
         	</div>
        </div>
 <% 		 		
@@ -109,18 +113,52 @@
 
       </div>
     </div>
- 
+ 	
+ <!-- comments -->
+	<nav id="nav">
+		<div class="wrap">
+			<div class="orderInfo">
+				<div class="status-info">
+					<div>진행상태: <select name="status" id="status">
+                  <option value="ongoing">진행중</option>
+                  <option value="done">완료</option wpdl>
+                  <option value="stop">중지</option>
+                </select>
+          </div>
+        	<div class="requester">
+        	의뢰자 <input type="text" name="requester" id="requester" value="" />
+        	</div>
+				</div>
+			</div>
+			
+			<div class="content-info">
+				<div>내용</div>
+				<div class="commenter">작성자</div>
+				<div class="comment_date">시간</div>
+			</div>
+			
+			<div class="followup">
+				<div class="followup right">
+					<div class="ordernum">
+		        	주문번호 <input type="text" name="ordernum" id="ordernum" style="width: 80px; height:25px;">
+					</div>
+					<div class="commenter">
+		        	작성자 <input type="text" name="commenter" id="commenter">
+					</div>
+				</div>
+				<div class="content">
+         <textarea name="content" id="content" cols="61" rows="5" placeholder="입력해주세요."></textarea>
+        </div>
+			</div>
+		
+		</div>
+  </nav>
+  
+  
+  
   <%@ include file="footer.jsp" %>
   
-  
-   <!-- comments -->
-	<nav id="nav">
-    <ul>
-      <li class="active js">Javascript</li>
-      <li class="active ts">Typescript</li>
-      <li class="active node">Node.js</li>
-    </ul>
-  </nav>
+
  
   
 		<script>

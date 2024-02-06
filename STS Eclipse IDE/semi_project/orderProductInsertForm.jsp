@@ -45,7 +45,7 @@
                   <label class="img-file-label" for="img-file" style="width:30px"></label>               
                 </div>
                 <div class="requester">
-                  작성자: <input type="text" name="requester" id="requester">
+                  의뢰자: <input type="text" name="requester" id="requester">
                 </div>
               </div>
 
@@ -120,7 +120,7 @@
 	<script>
    		function prevCheckTextBox() { //console.log('잘 나와?');  			
    			if(!$('#requester').val()) {		//이름 관련 dom
-   				alert('작성자를 입력하세요. 모든 정보를 입력해주세요');		//이름 입력 팝업
+   				alert('의뢰자를 입력하세요. 모든 정보를 입력해주세요');		//이름 입력 팝업
    				$('#requester').focus();		//이름 입력칸으로 포커스 이동
    				
    				return;
