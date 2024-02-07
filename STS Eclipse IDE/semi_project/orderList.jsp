@@ -93,7 +93,9 @@
             <div class="content_name"><a href="./orderProductUpdateForm.jsp?ordernum=<%= rs.getInt("ORDER_NUM") %>" style="color: black;"><%= rs.getString("ITEM_NAME") %></a></div>
             <div class="quantity"><%= rs.getInt("QUANTITY") %></div>                 
             <div class="delete"><button style="cursor: pointer; font-size: 10px;" onClick="javascript: noticeDelete(<%= rs.getInt("ORDER_NUM") %>);">X</button></div>
+        		
         		<div class="requester" style="display:none"><%= rs.getString("REQUESTER") %></div>
+	         	<div class="ordernum" style="display:none"><%= rs.getInt("ORDER_NUM") %></div>
         	</div>
        </div>
 <% 		 		
@@ -119,24 +121,66 @@
 		<div class="wrap">
 			<div class="orderInfo">
 				<div class="status-info">
-					<div>진행상태: <select name="status" id="status">
-                  <option value="ongoing">진행중</option>
-                  <option value="done">완료</option wpdl>
-                  <option value="stop">중지</option>
-                </select>
-          </div>
+				 <form action="./update_status.jsp" method="post" id="form1">
+						<div>진행상태: <select name="status" id="status">
+	                  <option value="진행중">진행중</option>
+	                  <option value="완료">완료</option>
+	                  <option value="중지">중지</option>
+	                </select>
+	          </div>
+	       
+	          <input type="text" name="ordernum" id="ordernum" value="" style="display:none;" />
+	        	<button type="submit" value="update"><span class="material-symbols-outlined">done
+						</span></button>	        
+          </form>
         	<div class="requester">
         	의뢰자 <input type="text" name="requester" id="requester" value="" />
         	</div>
 				</div>
 			</div>
 			
-			<div class="content-info">
-				<div>내용</div>
-				<div class="commenter">작성자</div>
-				<div class="comment_date">시간</div>
-			</div>
 			
+				<div class="content-info">
+					<input type="text" name="ordernum" id="ordernum" value="" style="display:none;" />
+					<div class="content">내용</div>
+					<div class="commenter">작성자</div>
+					<div class="comment_date">시간</div>
+				</div>
+			
+<%
+ try {
+	  
+		// 1. JDBC로 Oracle연결
+	  conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
+	  // System.out.println("오라클 접속 성공");
+	  
+		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
+	 	stmt = conn.createStatement();	// 2-1. Statement 생성
+	 	rs = stmt.executeQuery("SELECT b.COMMENTER, b.CONTENT, b.COMMENT_DATE FROM ORDER_PRODUCT a, ORDER_COMMENT b WHERE a.ORDER_NUM = b.ORDER_NUM"); // 2-2. SQL 쿼리 실행
+		
+	 	
+	 	// 3. rs로 데이터 가져온 걸 웹에 보여주기 -> 쿼리 실행 결과 출력
+	 	while(rs.next()) {		
+%>    		
+					
+				<div class="content-info-box">
+        	<div>
+            <div class="content"><%= rs.getString("CONTENT") %></div>
+            <div class="commenter"><%= rs.getString("COMMENTER") %></div>
+            <div class="comment_date"><%= rs.getDate("COMMENT_DATE") %></div>                 
+        	</div>
+       </div>
+<% 		 		
+	 	}
+  } catch(Exception e) {
+	  System.out.println("오라클 접속 오류: " + e);
+  } finally {
+	  if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+	  if (stmt != null) try { stmt.close(); } catch (SQLException ex) {}
+	  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+  }
+%>
+		<div class="follow-wrap">
 			<div class="followup">
 				<div class="followup right">
 					<div class="ordernum">
@@ -150,6 +194,7 @@
          <textarea name="content" id="content" cols="61" rows="5" placeholder="입력해주세요."></textarea>
         </div>
 			</div>
+		</div>
 		
 		</div>
   </nav>
@@ -171,6 +216,7 @@
     			location.href = "./orderProductDelete.jsp?order_num=" + noticeNum;
     		}
     	}
+    
     	
     </script>
   

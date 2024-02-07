@@ -13,7 +13,7 @@
 	<header>
 		<div class="logo">
 			<a href="index.jsp" class="logodiv">
-				<img src="image/icons.png" alt="icon">
+				<img src="img/icons.png" alt="icon">
 				<div class="logoname">의류 생산 관리</div>
 			</a>	
 			<div class="login">

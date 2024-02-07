@@ -140,6 +140,7 @@
   transform: scale(1.5);
 }
 
+
 .wrapper .content-box .content_date {
 	position:absolute;
 	left: 37%;
@@ -219,15 +220,41 @@ a {
 
 
 #nav .wrap .orderInfo {
-	width: 400px;
+	width:  450px;
 	height: 40px;
 	margin: auto;
 }
 
 #nav .wrap .status-info {
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	margin-top: 60px;
+}
+
+#nav .wrap .status-info button {
+	position: absolute;
+	top: 2px;
+	right: 58%;
+	width: 25px; 
+	height: 25px;
+	border-radius: 31px;
+	cursor: pointer;
+	border: 1px solid skyblue;
+	background-color: white;
+}
+
+#nav .wrap .status-info button .material-symbols-outlined {
+	position: absolute;
+	top: 0;
+	right: -5%;
+}
+
+#nav .wrap .status-info button:hover {
+	background-color: skyblue;
+}
+
+.wrapper .content-box .delete button span {
+	position: absolute;
 }
 
 #nav .wrap .status-info select {
@@ -242,7 +269,7 @@ a {
   border: 1px solid #c8c8c8;
 }
 
-#nav .wrap .status-info select, input:focus {outline: none;}
+#nav .wrap .status-info select, input, button:focus {outline: none;}
 
 #nav .wrap .status-info select:hover {
   border: 1px solid pink;
@@ -259,38 +286,74 @@ a {
 
 #nav .content-info {
 	width: 450px;
-	height: 555px;
-	background-color: yellow;
+	height: 25px;
+	border-bottom: 1px solid #c8c8c8;
 	display: flex;
 	justify-content: space-between;
 }
 
+#nav .content-info-box {
+	display: flex;
+	position: relative;
+	width: 450px;
+	height: 30px;
+	align-items: center;
+}
+
 #nav .content-info .commenter { 
 	position: absolute;
-	right:25%;
+	right:23%;
 }
 
 
 #nav .content-info .comment_date { 
 	position: absolute;
-		right:1%;
+		right:0;
 }
 
-#nav .followup {
+#nav .content-info-box .content {
+	position: absolute;
+		left:0;
+}
+
+#nav .content-info-box .commenter {
+	position: absolute;
+		right:23%;
+}
+
+#nav .content-info-box .comment_date {
+	position: absolute;
+		right:0;
+}
+
+#nav .follow-wrap {
+	width: 450px;
+	height: 130px;
+	margin: 5px 3px;
+	position: absolute;
+	bottom: 45px;
+	left: -16px;
+	padding: 16px 7px;
+	box-shadow: 5px 8.4px 35px 5px rgba(61, 62, 69, 0.18);
+	background: #FFF;
+	gap: 955.91px;
+}
+
+#nav .follow-wrap .followup {
 	display:flex;
 	width: 450px;
 	height: 125px;
-	background-color: pink;
-	margin-top: 15px;
+	margin-top: 10px;
 	position: relative;
 }
 
-#nav .followup.right{
+#nav .follow-wrap .followup.right{
 	margin:auto;
 	justify-content: flex-end;
+	gap: 13px;
 }
 
-#nav .followup textarea {
+#nav .follow-wrap .followup textarea {
 	position:absolute;
 	bottom:0;
 	right:0;
@@ -299,7 +362,7 @@ a {
   resize: none;
 }
 
-#nav .followup textarea:focus {
+#nav .follow-wrap .followup textarea:focus {
   border: 1px solid #c8c8c8;
   outline: none;
 }
