@@ -293,11 +293,11 @@ a {
 }
 
 #nav .content-info-box {
-	display: flex;
+	
 	position: relative;
 	width: 450px;
 	height: 30px;
-	align-items: center;
+	margin-top: 5px;
 }
 
 #nav .content-info .commenter { 
@@ -345,6 +345,7 @@ a {
 	height: 125px;
 	margin-top: 10px;
 	position: relative;
+	gap: 5px;
 }
 
 #nav .follow-wrap .followup.right{
@@ -371,7 +372,18 @@ a {
   border: 1px solid pink;
 }
 
+#nav .wrap .follow-wrap button.ok {
+	width: 32px; 
+	height: 30px;
+	border-radius: 31px;
+	cursor: pointer;
+	border: 1px solid skyblue;
+	background-color: white;
+	margin: -1px 4px;
+}
 
-
+#nav .wrap .follow-wrap button.ok:hover {
+	background-color: skyblue;
+}
 
 

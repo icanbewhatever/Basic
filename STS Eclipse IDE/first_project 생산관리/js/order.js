@@ -2,6 +2,8 @@ let btn1 = Array.from(document.querySelectorAll(".status"));
 let menu = document.querySelector("#nav");
 let prevClickedIndex = null; // 이전에 클릭한 .status 요소의 인덱스를 저장할 변수
 
+//let contentInfoBoxArr = Array.from(document.querySelectorAll(".content-info-box"));
+
 // 메뉴 영역 외의 다른 요소 클릭 시 active 클래스 제거
 document.addEventListener("click", (event) => {
     if (!event.target.closest(".content-box") && !event.target.closest("#nav")) { 
@@ -42,6 +44,22 @@ for (let i = 0; i < btn1.length; i++) {
         var status_popup = document.getElementById("status");
         var status_popup_idx = getStatusPopupIdx(statusText);
         status_popup.options[status_popup_idx].selected = true;
+        
+				// 주문 번호와 일치하는 content-info-box 가져오기
+        var contentInfoBoxes = document.querySelectorAll(".content-info-box");
+        contentInfoBoxes.forEach((box) => {
+						//console.log('forEach box: ', box);
+            var boxOrderNum = box.querySelector(".ordernum").innerText;
+            //console.log('boxOrderNum: ', boxOrderNum);
+            
+            if (boxOrderNum === orderNum) {
+                // 주문 번호가 일치하면 해당 content-info-box를 보여줌
+                box.style.display = "block";
+            } else {
+                // 주문 번호가 일치하지 않으면 해당 content-info-box를 숨김
+                box.style.display = "none";
+            }
+        });
     });
 
     btn1[i].addEventListener("click", () => {

@@ -141,7 +141,6 @@
 			
 			
 				<div class="content-info">
-					<input type="text" name="ordernum" id="ordernum" value="" style="display:none;" />
 					<div class="content">내용</div>
 					<div class="commenter">작성자</div>
 					<div class="comment_date">시간</div>
@@ -156,15 +155,14 @@
 	  
 		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
 	 	stmt = conn.createStatement();	// 2-1. Statement 생성
-	 	rs = stmt.executeQuery("SELECT b.COMMENTER, b.CONTENT, b.COMMENT_DATE FROM ORDER_PRODUCT a, ORDER_COMMENT b WHERE a.ORDER_NUM = b.ORDER_NUM"); // 2-2. SQL 쿼리 실행
-		
+	 	rs = stmt.executeQuery("SELECT a.ORDER_NUM, b.COMMENTER, b.CONTENT, b.COMMENT_DATE FROM ORDER_PRODUCT a, ORDER_COMMENT b WHERE a.ORDER_NUM = b.ORDER_NUM ORDER BY COMMENT_DATE "); // 2-2. SQL 쿼리 실행
 	 	
 	 	// 3. rs로 데이터 가져온 걸 웹에 보여주기 -> 쿼리 실행 결과 출력
-	 	while(rs.next()) {		
+	 	while(rs.next()) {
 %>    		
-					
 				<div class="content-info-box">
         	<div>
+        	  <div class="ordernum" style="display: none;"><%= rs.getInt("ORDER_NUM") %></div>
             <div class="content"><%= rs.getString("CONTENT") %></div>
             <div class="commenter"><%= rs.getString("COMMENTER") %></div>
             <div class="comment_date"><%= rs.getDate("COMMENT_DATE") %></div>                 
@@ -180,31 +178,30 @@
 	  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
   }
 %>
+
 		<div class="follow-wrap">
-			<div class="followup">
-				<div class="followup right">
-					<div class="ordernum">
-		        	주문번호 <input type="text" name="ordernum" id="ordernum" style="width: 80px; height:25px;">
+			<form action="./commentInsert.jsp" method="post" id="form2" onSubmit="return false">
+				<div class="followup">
+					<div class="followup right">
+						<div class="ordernum">
+			        	주문번호 <input type="text" name="fordernum" id="fordernum" style="width: 80px; height:25px;">
+						</div>
+						<div class="commenter">
+			        	작성자 <input type="text" name="fcommenter" id="fcommenter" style="width: 100px; height:25px;">
+						</div>
 					</div>
-					<div class="commenter">
-		        	작성자 <input type="text" name="commenter" id="commenter">
-					</div>
+					<div class="content">
+	         <textarea name="fcontent" id="fcontent" cols="61" rows="5" placeholder="입력해주세요."></textarea>
+	        </div>
+	        <button type="submit" value="" class="ok" onClick="javascript: prevOkTextBox();">OK</button>
 				</div>
-				<div class="content">
-         <textarea name="content" id="content" cols="61" rows="5" placeholder="입력해주세요."></textarea>
-        </div>
-			</div>
+			</form>
 		</div>
 		
 		</div>
   </nav>
   
-  
-  
   <%@ include file="footer.jsp" %>
-  
-
- 
   
 		<script>
     	function searchText() {
@@ -216,10 +213,48 @@
     			location.href = "./orderProductDelete.jsp?order_num=" + noticeNum;
     		}
     	}
-    
     	
+    	
+    	function prevOkTextBox() { //console.log('잘 나와?');  			
+   			
+    		if(!$('#fordernum').val()) {		//이름 관련 dom
+   				alert('주문번호를 입력하세요.');		//이름 입력 팝업
+   				$('#fordernum').focus();		//이름 입력칸으로 포커스 이동
+   				
+   				return;
+   			}
+    		
+   			
+   			if(!$('#fcommenter').val()) {		//이름 관련 dom
+   				alert('작성자를 입력하세요.');		//이름 입력 팝업
+   				$('#fcommenter').focus();		//이름 입력칸으로 포커스 이동
+   				
+   				return;
+   			}
+   			
+   			if(!$('#fcontent').val()) {		//이름 관련 dom
+   				alert('내용을 입력하세요.');		//이름 입력 팝업
+   				$('#fcontent').focus();		//이름 입력칸으로 포커스 이동
+   				
+   				return;
+   			}
+   			
+   			// 사용자가 등록을 원하는지 확인하는 창 표시
+ 		    if (confirm('게시후 삭제할 수 없습니다. 정말 게시하겠습니까?')) {
+ 		        // 사용자가 확인을 클릭한 경우 폼 제출
+ 		       document.getElementById('form2').submit()
+ 		    }
+   		
+   			/*if (confirm('정말 등록하시겠습니까?')) {
+    			location.href = "./commentInsert.jsp;
+    		}
+   			
+   			//실제 form의 action 값으로 전송
+   			document.getElementById('form2').submit();
+   			//빈 텍스트 박스 처리 */
+   	
+   		}
     </script>
-  
   
 </body>
 </html>
