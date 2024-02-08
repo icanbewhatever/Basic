@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/orderProduct.css">
-    <link rel="icon" href="./favicon.ico" />
+    <link rel="icon" href="./img/favicon.ico" />
     <!-- 구글 아이콘 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
      <!-- reset.css -->
@@ -57,11 +57,11 @@
                 <div class="item-type">
                 종류: <select name="itemtype" id="itemtype">
                   <option value="none" selected>=== 선택 ===</option>
-                  <option value="shirt">셔츠</option>
-                  <option value="longsleeves">긴팔</option>
-                  <option value="shortsleeves">반팔</option>
-                  <option value="hoodie">후디</option>
-                  <option value="polo">폴로</option>
+                  <option value="셔츠">셔츠</option>
+                  <option value="긴팔">긴팔</option>
+                  <option value="반팔">반팔</option>
+                  <option value="후디">후디</option>
+                  <option value="폴로">폴로</option>
                 </select>
                 </div>
                 <div class="order-place">
@@ -115,7 +115,8 @@
           </form>   
         </div>
       </div>
-   
+  
+  <%@ include file="footer.jsp" %>
     
 	<script>
    		function prevCheckTextBox() { //console.log('잘 나와?');  			

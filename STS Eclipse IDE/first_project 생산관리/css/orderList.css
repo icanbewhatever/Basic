@@ -1,33 +1,34 @@
 
   
-  .inner {
-     margin-top: 80px;
-     margin-left: 224px; 
-     width: 1000px; 
-     
-  }
-  
-  a {
-    text-decoration: none;
-  }
+.inner {
+   margin-top: 80px;
+   margin-left: 224px; 
+   width: 1000px; 
+   
+}
 
-  .inner .top {
-    display: inline-flex;
-    width: 950px;
-    height: 70px;
-    padding: 0px 16px 0px 32px;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 955.91px;
-    background: #FFF;
-    box-shadow: 0px 2.4px 28px 0px rgba(58, 59, 69, 0.15);
-  }
+a {
+  text-decoration: none;
+}
+
+.inner .top {
+  display: inline-flex;
+  width: 950px;
+  height: 70px;
+  padding: 0px 16px 0px 32px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 955.91px;
+  background: #FFF;
+  box-shadow: 0px 2.4px 28px 0px rgba(58, 59, 69, 0.15);
+  position:relative;
+}
+
+.inner .top .serach-bar {
+ display: flex;
+}
   
-  .inner .top .serach-bar {
-   display: flex;
-  }
-  
-  #search-text {
+#search-text {
     cursor: pointer;
     border: 2px solid skyblue;
     border-radius: 5px;
@@ -38,18 +39,18 @@
     flex-shrink: 0;
     margin-top: 10px;
     font-size: 20px;
-  }
+}
   
-  #search-text:focus {
+#search-text:focus {
   outline: none;
   width: 361px;
   transition: 1s;
-  }
+}
   
-  .inner .top .serach-bar .material-symbols-outlined {
+.inner .top .serach-bar #search {
   display: flex;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   padding: 12px 12.637px 12px 13px;
   justify-content: center;
   align-items: center;
@@ -60,17 +61,42 @@
   color: #FFF;
   margin-left: 10px;
   cursor: pointer;
-  }
+  position: absolute;
+  top: 15px;
+}
  
+.inner .top #help {
+  	position: absolute;
+  	right: 20px;
+}
   
-  
-  .inner .top .serach-bar h2 {
+.inner .top .tip {
+	padding: 15px 20px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position:absolute;
+  right: 50px;
+  top: 7px;
+  font-size: 12px;
+  display: none;
+}
+
+.inner .top #help:hover + .tip {
+  display: block;
+}
+
+.inner .top .tip > div {
+	margin: 5px auto;
+}
+
+.inner .top .serach-bar h2 {
   font-size: 25px;
   margin: 15px;
   font-weight: 600;
   }
   
-  .wrapper {
+.wrapper {
   width: 1000px;
   height: 500px;
   margin-top: 50px;
@@ -78,9 +104,9 @@
   position: relative;
   background: #FFF;
   box-shadow: 0px 3px 28px 8px rgba(58, 59, 69, 0.15);
-  }
+}
   
-  .wrapper .header {
+.wrapper .header {
   text-align: center;
   display: block;
   height: 20px;
@@ -132,10 +158,13 @@
 
 .wrapper .content-box .status.active {
 	position:absolute;
-	left: 23%;
-	width: 60px;
-  border: 2px solid green;
-  border-radius: 10px;
+	left: 22%;
+	top:4px;
+	width: 56px;
+	height: 15px;
+	padding: 4px;
+  border: 1px solid red;
+  border-radius: 20px;
   text-align: center;
   transform: scale(1.5);
 }
@@ -271,9 +300,22 @@ a {
 
 #nav .wrap .status-info select, input, button:focus {outline: none;}
 
-#nav .wrap .status-info select:hover {
-  border: 1px solid pink;
+#nav .wrap .status-info select:hover + .tip {
+  display: block;
 }
+
+#nav .tip {
+	padding: 8px 8px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position:absolute;
+  left:72px;
+  top: 32px;
+  font-size: 11px;
+	display:none;
+}
+
 
 #nav .wrap input {
 	width: 120px;
@@ -290,10 +332,31 @@ a {
 	border-bottom: 1px solid #c8c8c8;
 	display: flex;
 	justify-content: space-between;
+	padding: 5px;
+}
+
+
+#nav .content-info .ftip {
+	padding: 8px 8px;
+  background-color: #444444;
+  border-radius: 5px;
+  color: #ffffff;
+  position:absolute;
+  right: 136px;
+  top: 84px;
+  font-size: 11px;
+  display: none;
+}
+
+#nav .wrap:hover .ftip {
+  display: block;
+}
+
+#nav .wrap:hover .content-info:not(:hover) .ftip {
+  display: none;
 }
 
 #nav .content-info-box {
-	
 	position: relative;
 	width: 450px;
 	height: 30px;

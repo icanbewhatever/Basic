@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/orderProduct.css">
-    <link rel="icon" href="./favicon.ico" />
+    <link rel="icon" href="./img/favicon.ico" />
     <!-- 구글 아이콘 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
      <!-- reset.css -->
@@ -109,7 +109,7 @@
       <!-- 주문내용 -->
       <div class="wrapper">
         <div class="title">
-        <h2>주문완료 의뢰서</h2>
+        <h2>주문 의뢰서</h2>
         </div>
 
         <!-- 폼 구현 -->

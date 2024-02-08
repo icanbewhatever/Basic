@@ -38,11 +38,16 @@
       <div class="top">
         <div class="serach-bar">
           <input type="search" name="search-text" id="search-text" placeholder="검색어를 입력하세요." value="<%= searchText %>"><a class="search" href="javascript: searchText();">
-          <span class="material-symbols-outlined">
-            search
-            </span></a>
+          <span class="material-symbols-outlined" id="search">search</span></a>
         </div>
-      </div>
+        <span class="material-symbols-outlined" id="help">help</span>
+        <div class="tip">
+        	<div>tip</div>
+        	<div>- 제품이름으로 검색할 수 있어요!</div>
+        	<div>- 주문번호,일자, 제품이름으로 의뢰서를 확인 및 수정 할 수 있어요.</div>
+        	<div>- 각 주문된 상태를 더블클릭해보세요!</div>
+      	</div>
+       </div>
       
  			<div class="wrapper">
         <div class="header">관리자 주문 목록</div>
@@ -127,6 +132,7 @@
 	                  <option value="완료">완료</option>
 	                  <option value="중지">중지</option>
 	                </select>
+	             <div class="tip">tip 진행상태를 클릭해 변경할 수 있어요!</div>   
 	          </div>
 	       
 	          <input type="text" name="ordernum" id="ordernum" value="" style="display:none;" />
@@ -141,9 +147,10 @@
 			
 			
 				<div class="content-info">
-					<div class="content">내용</div>
+					<div class="content">내용 follow-up</div>
 					<div class="commenter">작성자</div>
 					<div class="comment_date">시간</div>
+					<div class="ftip">tip 주문처리 현황을 볼 수 있어요!</div>
 				</div>
 			
 <%
@@ -191,7 +198,7 @@
 						</div>
 					</div>
 					<div class="content">
-	         <textarea name="fcontent" id="fcontent" cols="61" rows="5" placeholder="입력해주세요."></textarea>
+	         <textarea name="fcontent" id="fcontent" cols="61" rows="5" placeholder="주문처리 현황을 입력해주세요."></textarea>
 	        </div>
 	        <button type="submit" value="" class="ok" onClick="javascript: prevOkTextBox();">OK</button>
 				</div>
