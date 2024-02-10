@@ -37,7 +37,7 @@
       <!-- 검색어 입력 -->
       <div class="top">
         <div class="serach-bar">
-          <input type="search" name="search-text" id="search-text" placeholder="검색어를 입력하세요." value="<%= searchText %>"><a class="search" href="javascript: searchText();">
+          <input type="search" name="search-text" id="search-text" placeholder="제품이름을 검색하세요." value="<%= searchText %>"><a class="search" href="javascript: searchText();">
           <span class="material-symbols-outlined" id="search">search</span></a>
         </div>
         <span class="material-symbols-outlined" id="help">help</span>
@@ -62,10 +62,12 @@
             <div class="delete">삭제</div>
         </div>
 <%
+ 
 	String JDBC_URL = "jdbc:oracle:thin:@1.220.247.78:1522:orcl";
 	String USER = "semi_project2";
  	String PASSWORD = "123452";
 	
+ 	PreparedStatement pstmt = null; // pstmt 변수 선언 및 초기화 추가
   Connection conn = null; //디비 접속 성공시 접속 정보 저장
 	Statement stmt = null; //쿼리를 실행하기 객체 정보
 	ResultSet rs = null;
@@ -74,15 +76,63 @@
 
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	
+	
+	int countList = 5; // 한 페이지에 출력될 게시물 수
+	int currPage = (request.getParameter("page") != null) ? Integer.parseInt(request.getParameter("page")) : 1; // 현재 페이지 번호
+	int totalCount = 21; // 전체 행의 개수
+	
+	// 총 페이지 수 계산
+	int totalPage = totalCount / countList;
+	if (totalCount % countList > 0) {
+	    totalPage++;
+	}
+	
+	// 현재 페이지가 총 페이지보다 크면 현재 페이지를 총 페이지로 설정
+	if (currPage > totalPage) {
+	    currPage = totalPage;
+	}
+	
+	int countPage = 5; // 한 번에 표시될 페이지 수
+	int startPage = ((currPage - 1) / countPage) * countPage + 1; // 시작 페이지 번호
+	int endPage = startPage + countPage - 1; // 끝 페이지 번호
+	
+	// 끝 페이지 번호가 총 페이지 수보다 크면 끝 페이지 번호를 총 페이지 수로 설정
+	if (endPage > totalPage) {
+	    endPage = totalPage;
+	}
+	
+	// 시작 행 번호와 끝 행 번호 계산
+	int startRow = (currPage - 1) * countList + 1; // 시작 행 번호
+	int endRow = currPage * countList; // 끝 행 번호
+	
+	// 끝 행 번호가 총 행 수보다 클 경우 총 행 수로 설정
+	if (endRow > totalCount) {
+	    endRow = totalCount;
+	}
+	
   try {
 	  
 		// 1. JDBC로 Oracle연결
 	  conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
 	  // System.out.println("오라클 접속 성공");
 	  
-		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
-	 	stmt = conn.createStatement();	// 2-1. Statement 생성
-	 	rs = stmt.executeQuery("SELECT ORDER_NUM, STATUS, ORDER_DATE, ITEM_NAME, QUANTITY, REQUESTER FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE '%" + searchText + "%' ORDER BY ORDER_NUM DESC fetch first 5 rows only"); // 2-2. SQL 쿼리 실행
+	 	stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE); 
+	 	 rs = stmt.executeQuery("SELECT * FROM PRODUCTS");
+	      rs.last();
+	      totalCount = rs.getRow();   
+	      rs.beforeFirst();
+
+	      
+	      pstmt = conn.prepareStatement("SELECT * FROM (SELECT ROWNUM AS rnum, ORDER_NUM, STATUS, ORDER_DATE, ITEM_NAME, QUANTITY, REQUESTER " +
+	              "FROM (SELECT * FROM ORDER_PRODUCT WHERE ITEM_NAME LIKE ? ORDER BY ORDER_DATE DESC) A " +
+	              "WHERE ROWNUM <= ?) " +
+	              "WHERE rnum >= ?");
+	      
+			pstmt.setString(1, "%" + searchText + "%"); // 검색어 바인딩
+			pstmt.setInt(2, endRow); // 끝 행 번호 바인딩
+			pstmt.setInt(3, startRow); // 시작 행 번호 바인딩
+		   
+		   rs = pstmt.executeQuery();
 		
 	 	int i = 0;
 	 	// 3. rs로 데이터 가져온 걸 웹에 보여주기 -> 쿼리 실행 결과 출력
@@ -109,15 +159,37 @@
 	  System.out.println("오라클 접속 오류: " + e);
   } finally {
 	  if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+	  
 	  if (stmt != null) try { stmt.close(); } catch (SQLException ex) {}
 	  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
   }
 %>
-         <!-- 1-3. 글쓰기 버튼은 class="btn"로 <div>로 구역 설정 -->
-            <div class="btn">
-                <a href="./orderProductInsertForm.jsp">주문하기</a>
-            </div>
+     <!-- 1-3. 글쓰기 버튼은 class="btn"로 <div>로 구역 설정 -->
+        <div class="btn">
+            <a href="./orderProductInsertForm.jsp">주문하기</a>
+        </div>
 
+			<!-- 페이지네이션 -->
+		<div class="pagination">
+    <!-- 처음 버튼 -->
+    <a href="./orderList.jsp?page=1" class="startPage">
+        <span class="material-symbols-outlined">keyboard_double_arrow_left</span>
+    </a>
+            
+    <!-- 페이지 버튼 목록 -->
+  
+    <% for (int i = startPage; i <= endPage; i++) { %>
+        <a href="./orderList.jsp?page=<%= i %>" id="pageNum" class="<%= (i == currPage) ? "boldPage" : "listPage" %>"><%= i %></a>
+    <% } %>
+    
+    
+    <!-- 마지막 버튼 -->
+    <a href="./orderList.jsp?page=<%= totalPage %>&search=<%= searchText %>" class="lastPage">
+        <span class="material-symbols-outlined">keyboard_double_arrow_right</span>
+    </a>
+</div>
+				
+				
       </div>
     </div>
  	
@@ -208,9 +280,16 @@
 		</div>
   </nav>
   
+  <!-- 페이지 -->
+
+  
+  
   <%@ include file="footer.jsp" %>
   
 		<script>
+		
+		  console.log(<%= currPage %>);
+		
     	function searchText() {
     		location.href = "./orderList.jsp?search=" + $('#search-text').val();
     	}
@@ -251,16 +330,23 @@
  		        // 사용자가 확인을 클릭한 경우 폼 제출
  		       document.getElementById('form2').submit()
  		    }
-   		
-   			/*if (confirm('정말 등록하시겠습니까?')) {
-    			location.href = "./commentInsert.jsp;
-    		}
-   			
-   			//실제 form의 action 값으로 전송
-   			document.getElementById('form2').submit();
-   			//빈 텍스트 박스 처리 */
    	
    		}
+   
+    	$(document).ready(function() {
+    	    var clickedPage = <%= currPage %>; // 클릭된 페이지의 초기값을 현재 페이지로 설정
+
+    	    // 페이지네이션 링크에 클릭 이벤트 처리
+    	    $('.pagination a').on('click', function() {
+    	        // 클릭된 페이지가 다른 페이지로 이동하기 전까지만 유지되도록 클래스 추가/제거
+    	        $('.pagination a').removeClass('active'); // 모든 페이지네이션 링크에서 active 클래스 제거
+    	        $(this).addClass('active'); // 클릭된 페이지네이션 링크에 active 클래스 추가
+    	        clickedPage = $(this).index() + 1; // 클릭된 페이지의 인덱스를 저장
+    	    });
+
+    	    // 페이지 로드 시 초기 클릭된 페이지에 대한 스타일 적용
+    	    $('.pagination a').eq(clickedPage).addClass('active');
+    	});
     </script>
   
 </body>

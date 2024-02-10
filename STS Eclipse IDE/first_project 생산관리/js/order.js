@@ -48,7 +48,7 @@ for (let i = 0; i < btn1.length; i++) {
 				// 주문 번호와 일치하는 content-info-box 가져오기
         var contentInfoBoxes = document.querySelectorAll(".content-info-box");
         contentInfoBoxes.forEach((box) => {
-						//console.log('forEach box: ', box);
+						console.log('forEach box: ', box);
             var boxOrderNum = box.querySelector(".ordernum").innerText;
             //console.log('boxOrderNum: ', boxOrderNum);
             
@@ -75,6 +75,7 @@ function getStatusPopupIdx(textStatus) {
     if (textStatus == '중지')
         return 2;
 }
+
 
 
 /*	

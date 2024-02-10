@@ -163,7 +163,7 @@ a {
 	width: 56px;
 	height: 15px;
 	padding: 4px;
-  border: 1px solid red;
+  background-color: #FAFA96;
   border-radius: 20px;
   text-align: center;
   transform: scale(1.5);
@@ -449,4 +449,25 @@ a {
 	background-color: skyblue;
 }
 
+.pagination a {
+	color: #666666;
+}
 
+.pagination a.active {
+		width: 10px;
+		height: 19px;
+    border: 1px solid skyblue;
+    border-radius: 15px;
+    transform: scale(1.5);
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	gap: 3%;
+	margin-top: 3%;
+}
+
+.pagination #pageNum {
+	padding: 1px 5px;
+}
