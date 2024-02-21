@@ -1,5 +1,5 @@
 create sequence seq_board;
- 
+
 create table tbl_board (
   bno number(10,0),
   title varchar2(200) not null,
@@ -8,6 +8,6 @@ create table tbl_board (
   regdate date default sysdate, 
   updatedate date default sysdate
 );
- 
-alter table tbl_board add constraint pk_board 
+
+alter table tbl_board add constraint pk_board
 primary key (bno);
