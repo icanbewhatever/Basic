@@ -68,6 +68,8 @@
         </div>
         <form action="./adminNoticeUpdate.jsp" method="post" id="form1" onSubmit="return false" enctype="multipart/form-data">
         	<input type="hidden" name="num" value="<%= num %>">
+        	<input type="hidden" name="file1Prev" value="<%= fileName1 == null ? "" : fileName1 %>">
+        	<input type="hidden" name="file2Prev" value="<%= fileName2 == null ? "" : fileName2 %>">
 	        <div class="card-write">
 	            <div class="myinfo">
 	                이름<input type="text" id="korname" name="korname" placeholder="이름을 입력하세요." value="<%= name %>">
@@ -80,8 +82,8 @@
 	            </div>
 	            <div class="msg">
 	                내용<textarea placeholder="내용을 입력하세요." name="content" id="content"><%= content %></textarea>
-	                <div><div>1. <input type="file" name="filecontent1" id="filecontent1"></div><div>등록된 첨부파일1 -> <a href="./upload-files/<%= fileName1 %>"><%= fileName1 %></a></div></div>
-	                <div><div>2. <input type="file" name="filecontent2" id="filecontent2"></div><div>등록된 첨부파일2 -> <a href="./upload-files/<%= fileName2 %>"><%= fileName2 %></a></div></div>
+	                <div><div>1. <input type="file" name="filecontent1" id="filecontent1"></div><div>등록된 첨부파일1 -> <a href="./fileDownload.jsp?filename=<%= fileName1 %>"><%= fileName1 %></a></div></div>
+	                <div><div>2. <input type="file" name="filecontent2" id="filecontent2"></div><div>등록된 첨부파일2 -> <a href="./fileDownload.jsp?filename=<%= fileName2 %>"><%= fileName2 %></a></div></div>
 	            </div>
 	        </div>
 	        <div class="btn-w">
@@ -121,5 +123,11 @@
    			document.getElementById('form1').submit();
     	}
     </script>
+	<%
+    	// 캐시 만료를 통한 뒤로가기 방지
+	    response.setHeader("Expires", "Thu, 27 Jul 2023 09:00:00 GMT"); // 현재시각보다 이전으로 만료시간을 설정
+	    response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"); // str 로 "" 으로 넣는것보단, 상수형으로 넣어주는게 좋다. 
+	    response.setHeader("Pragma", "no-cache"); 
+    %>
 </body>
 </html>

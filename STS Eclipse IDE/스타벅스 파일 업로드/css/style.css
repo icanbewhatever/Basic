@@ -214,6 +214,7 @@ body {
   color: #fff;
   border-radius: 10px;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 .card-header3 {

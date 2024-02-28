@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.lang.Exception" %>    
 <%@ page import="java.sql.*" %>
-
 <%
 	// 한글 처리
 	request.setCharacterEncoding("UTF-8");

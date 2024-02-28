@@ -20,7 +20,7 @@
 	
 	Exception exception = null;
 	
-	String savePath = "C:\\Users\\human-12\\Desktop\\project\\STS\\starbucks-notice\\src\\main\\webapp\\upload-files";	
+	String savePath = "D:\\github-pktjesus\\2401-human-suwon-frontend1\\starbucks-notice\\src\\main\\webapp\\upload-files";	
 	
   try {
 	  MultipartRequest multi = new MultipartRequest(

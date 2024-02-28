@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	// System.out.println("session-name: " + session.getAttribute("name"));
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,7 +21,7 @@
         <form action="./adminNoticeInsert.jsp" method="post" id="form1" onSubmit="return false" enctype="multipart/form-data">
 	        <div class="card-write">
 	            <div class="myinfo">
-	                이름<input type="text" id="korname" name="korname" placeholder="이름을 입력하세요.">
+	                이름<input type="text" id="korname" name="korname" placeholder="이름을 입력하세요." value="<%= session.getAttribute("name") %>">
 	                <!-- 
 	                비밀번호<input type="password" placeholder="비밀번호를 입력하세요.">
 	                -->
@@ -29,7 +32,7 @@
 	            <div class="msg">
 	                내용<textarea placeholder="내용을 입력하세요." name="content" id="content"></textarea>
 	                <div><div>1. <input type="file" name="filecontent1" id="filecontent1"></div></div>
-	                <div><div>2. <input type="file" name="filecontent2" id="filecontent2"></div></div>
+	                <div><div>2. <input type="file" name="filecontent2" id="filecontent2"></div>
 	            </div>
 	        </div>
 	        <div class="btn-w">
@@ -69,5 +72,11 @@
    			document.getElementById('form1').submit();
     	}
     </script>
+	<%
+    	// 캐시 만료를 통한 뒤로가기 방지
+	    response.setHeader("Expires", "Thu, 27 Jul 2023 09:00:00 GMT"); // 현재시각보다 이전으로 만료시간을 설정
+	    response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"); // str 로 "" 으로 넣는것보단, 상수형으로 넣어주는게 좋다. 
+	    response.setHeader("Pragma", "no-cache"); 
+    %>
 </body>
 </html>
