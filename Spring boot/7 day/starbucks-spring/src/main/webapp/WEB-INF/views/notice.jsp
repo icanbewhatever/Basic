@@ -5,6 +5,8 @@
 <%@ page import = "java.sql.Statement" %>
 <%@ page import = "java.sql.ResultSet" %>
 <%@ page import = "java.lang.Exception, java.sql.SQLException" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     
 <!DOCTYPE html>
 <html lang="ko">

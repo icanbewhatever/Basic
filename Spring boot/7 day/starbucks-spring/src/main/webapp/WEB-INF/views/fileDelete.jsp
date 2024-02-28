@@ -11,20 +11,20 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	String noticeNum = request.getParameter("noticeNum");			// 공지사항 번호
-	String fileNum = request.getParameter("fileNum");					// 공지사항 내의 파일 번호
+	String fileNum = request.getParameter("fileNum");				// 공지사항 내의 파일 번호
 	String fileName = request.getParameter("fileName");				// 공지사항 내의 파일 이름
 	
 	String JDBC_URL = "jdbc:oracle:thin:@localhost:1521:orcl";
-  String USER = "test";
-  String PASSWORD = "1234";
+    String USER = "test";
+    String PASSWORD = "1234";
 	
-  Connection conn = null; //디비 접속 성공시 접속 정보 저장
+    Connection conn = null; //디비 접속 성공시 접속 정보 저장
 	PreparedStatement pstmt = null; // 쿼리 실행문
 	
 	Exception exception = null;
 	
   // 물리적인 위치 context(내 PC 디렉토리)
-  String savePath = "D:\\temp2\\java_spring_lecture\\cotogether\\workspace_stsb_4_21\\starbucks-notice\\src\\main\\webapp\\upload-files";
+  String savePath = "C:\\SpringBoot\\starbucks-spring\\src\\main\\resources\\static\\upload-files";
 
   try {
 		// 0.
