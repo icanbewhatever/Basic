@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 @ContextConfiguration(classes = {RootConfig.class})
 @Log4j
 public class SampleTests {
-    @Setter(onMethod_ = { @Autowired })
+    @Setter(onMethod_ = @Autowired)
     private Restaurant restaurant1;
 
     private Restaurant restaurant2;

@@ -3,7 +3,6 @@ package org.zerock.domain;
 import lombok.Data;
 
 import java.util.List;
-
 @Data
 public class Test2DTO {
     private String name;

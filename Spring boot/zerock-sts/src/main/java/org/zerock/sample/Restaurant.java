@@ -11,8 +11,8 @@ public class Restaurant {
     @Setter(onMethod_ = @Autowired)
     private Chef chef;
 
-//    @Autowired
-//    public void setChef(Chef chef) {
-//        this.chef = chef;
-//    }
+   //위의 코드와 같다
+    // @Autowired
+    // public void setChef(Chef chef) {
+    // this.chef = chef;
 }

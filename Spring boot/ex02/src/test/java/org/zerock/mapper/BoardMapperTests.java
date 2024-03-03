@@ -20,15 +20,15 @@ import java.util.Map;
 @ContextConfiguration(classes = {DBConfig.class})
 @Log4j
 public class BoardMapperTests {
-  
+
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
-	
+
 	@Test
 	public void testGetList() {
 		Criteria cri = new Criteria();
-		cri.setType("TW");	// T(제목), W(작성자), C(내용), TW(제목 or 작성자), TC(제목 or 내용), TWC(제목 or 작성자 or 내용)
-		cri.setKeyword("ㅌㅊㅋㅍㄴ");
+		cri.setType("T");	// T(제목), W(작성자), C(내용), TW(제목 or 작성자), TC(제목 or 내용), TWC(제목 or 작성자 or 내용)
+		cri.setKeyword("asd");
 
 //		System.out.println("aaaaa");
 //		log.info("bbbbb");

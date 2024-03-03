@@ -21,8 +21,8 @@ public class DBConfig {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
         hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl");
-        hikariConfig.setUsername("jsp");
-        hikariConfig.setPassword("123456");
+        hikariConfig.setUsername("test");
+        hikariConfig.setPassword("1234");
 
         hikariConfig.setPoolName("oracle-freebo");
         hikariConfig.setMaximumPoolSize(5);
@@ -37,7 +37,7 @@ public class DBConfig {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
         sqlSessionFactory.setMapperLocations(
-        		new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/**/*.xml"));
+                new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/**/*.xml"));
         return (SqlSessionFactory) sqlSessionFactory.getObject();
     }
 }

@@ -66,17 +66,16 @@
 									<div style="margin-right: 10px;">검색</div>
 									<div>
 										<form id='searchForm' action='/board/list' method='get'>
-											<select name='type'>
+											<select name='type' />
 												<option value="">--</option>
 												<option value="T" <c:out value="${criteria.type == 'T' ? 'selected' : ''}" />>제목</option>
 												<option value="C" <c:if test="${criteria.type == 'C'}">selected</c:if>>내용</option>
-												<option value="W">작성자</option>
+												<option value="W" <c:out value="${criteria.type == 'W' ? 'selected' : ''}" />>작성자</option>
 												<option value="TC">제목 or 내용</option>
 												<option value="TW">제목 or 작성자</option>
-												<option value="WC">작성자 or 내용</option>
 												<option value="TWC">제목 or 내용 or 작성자</option>
 											</select>
-											<input type='text' name='keyword' value='<c:out value="${criteria.keyword}" />' />
+											<input type='text' name='keyword' value='<c:out value="${criteria.keyword}"/>'/>
 											<%-- <input type='hidden' name='pageNum' />
 											<input type='hidden' name='amount' /> --%>
 											<button class='btn btn-primary'>Search</button>
@@ -125,7 +124,7 @@
 					$("#myModal").modal("show");
 				}
 			}
-			
+
 			var searchForm = $("#searchForm");
 			$("#searchForm button").on("click",
 				function(e) {

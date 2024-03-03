@@ -53,7 +53,7 @@ public class BoardController {
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		log.info("register: " + board);
 
-		service.register(board);	// 실제 게시판 글 입력
+		service.register(board); // 실제 게시판 글 입력
 		rttr.addFlashAttribute("result", board.getBno());
 
 		return "redirect:/board/list";

@@ -6,6 +6,6 @@
     <title>Title</title>
 </head>
 <body>
-    ex05페이지입니다.
+    ex05 페이지입니다.
 </body>
 </html>

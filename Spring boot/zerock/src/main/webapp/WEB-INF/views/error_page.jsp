@@ -7,12 +7,12 @@
     <title>Title</title>
 </head>
 <body>
-    <!-- JSTL -->
-    <h4><c:out value="${exception.getMessage()}" /></h4>
-    <ul>
-        <c:forEach items="${exception.getStackTrace()}" var="stack1">
-            <li><c:out value="${stack1}" /></li>
-        </c:forEach>
-    </ul>
+    <!--JSTL -->
+   <h4><c:out value="${exception.getMessage()}" /></h4>
+       <ul>
+           <c:forEach items="${exception.getStackTrace()}" var="stack1">
+               <li><c:out value="${stack1}" /></li>
+           </c:forEach>
+       </ul>
 </body>
 </html>

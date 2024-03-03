@@ -22,12 +22,9 @@ public class RootConfig {
 //        hikariConfig.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 //        hikariConfig.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:orcl");
         hikariConfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-//        hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl");
-//        hikariConfig.setUsername("jsp");
-//        hikariConfig.setPassword("123456");
-        hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@1.220.247.78:1522:orcl");
-        hikariConfig.setUsername("jsp");
-        hikariConfig.setPassword("123456");
+        hikariConfig.setJdbcUrl("jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl");
+        hikariConfig.setUsername("test");
+        hikariConfig.setPassword("1234");
 
         hikariConfig.setPoolName("oracle-freebo");
         hikariConfig.setMaximumPoolSize(20);
@@ -41,9 +38,9 @@ public class RootConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
-        sqlSessionFactory.setMapperLocations(
-                new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/**/*.xml"));
-//        sqlSessionFactory.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mybatis-config.xml"));
+//        sqlSessionFactory.setMapperLocations(
+//                new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/**/*.xml"));
+        sqlSessionFactory.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mybatis-config.xml"));
         return (SqlSessionFactory) sqlSessionFactory.getObject();
     }
 }

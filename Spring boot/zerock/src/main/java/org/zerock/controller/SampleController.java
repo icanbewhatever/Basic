@@ -1,23 +1,20 @@
 package org.zerock.controller;
 
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.*;
 
-import java.text.SimpleDateFormat;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-@Controller
+@Controller //중요하다 bean에 있어야 들어갈 수 있다 @componente 처럼
 @RequestMapping("/sample/*")
 public class SampleController {
 
@@ -27,7 +24,7 @@ public class SampleController {
 //        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 //    }
 
-    @RequestMapping(value = "")
+    @RequestMapping(value="") //아무것도 안하면 get방식 ("") 같은 말
     public void basic() {
         System.out.println("basic......");
     }
@@ -38,7 +35,7 @@ public class SampleController {
     }
 
     //@RequestMapping(value = "/basicOnlyGet", method = {RequestMethod.GET})
-    @GetMapping("/basicOnlyGet")
+    @GetMapping("basicOnlyPost")
     public void basicGet2() {
         System.out.println("basic get only get......");
     }
@@ -57,17 +54,17 @@ public class SampleController {
     }
 
     @GetMapping("/ex02")
-    public String ex02(@RequestParam("name") String namesadfa
-            , @RequestParam("age") int agesadfadsf) {
-        System.out.println("name: " + namesadfa);
-        System.out.println("age: " + agesadfadsf);
+    public String ex02(@RequestParam("name") String name
+                    , @RequestParam("age") int age) {
+        System.out.println("name:" + name);
+        System.out.println("age: " + age);
 
         return "ex02";
     }
 
     @GetMapping("/ex02List")
     public String ex02List(@RequestParam("ids") ArrayList<String> ids) {
-        System.out.println("ids: " + ids);
+        System.out.println("ids:" + ids);
 
         return "ex02List";
     }
@@ -92,44 +89,39 @@ public class SampleController {
 
         return "ex03";
     }
-
-    @GetMapping("/test.do")
+    @GetMapping("/test1.do") // 인터넷 창에 띄우는 주소
     public String test1(TodoDTO todo) {
-        return "test/test1";
+        return "test/test2"; //어디에 위치했는지
     }
 
-    @GetMapping("/ex04")
+    @GetMapping("/ex04") // 인터넷 창에 띄우는 주소
     public String ex04(SampleDTO dto
-            , @ModelAttribute("page0") int page1
-            , @ModelAttribute("bbb") String test1
-            , RedirectAttributes rttr
-    ) {
+            , @ModelAttribute("page") int page1
+            , @ModelAttribute("bbb") String test1) {
+
         System.out.println("dto: " + dto);
         System.out.println("page1: " + page1);
-        System.out.println("test1-bbb: " + test1);
-
-        return "/sample/ex04";
+        System.out.println("bbb: " + test1);
+        return "sample/ex04"; //어디에 위치했는지
     }
-
     @GetMapping("/ex04-1")
-    public String ex04_1(RedirectAttributes rttr) {
+    public String ex4_1(RedirectAttributes rttr){
         return "ex04-1";
     }
-
     @GetMapping("/ex04-2")
-    public String ex04_2(RedirectAttributes rttr) {
-        return "redirect:/sample/ex04-1";
+    public String ex4_2(RedirectAttributes rttr){
+        return "redirect:/sample/ex04-1"; //jsp 파일이름이아니라 컨트롤로 간다
     }
 
     @GetMapping("/ex05")
-    public void ex05() {
-        System.out.println("/ex05............");
+    public void ex05(){ //void 잘 쓰지 않고 실제 string을 많이 사용
+        System.out.println("/ex05........");
     }
 
     @GetMapping("/ex06")
-    @ResponseBody
-    public List<SampleDTO> ex06() {
-        System.out.println("/ex06............");
+    @ResponseBody //여기다 넣는게 가속성에 좋다, public 다음으로 넣는 것 보다
+    public List<SampleDTO> ex06() { //void 잘 쓰지 않고 실제 string을 많이 사용
+        System.out.println("/ex06........");
 
         List<SampleDTO> sampleDTOList = new ArrayList<>();
 
@@ -147,18 +139,19 @@ public class SampleController {
     }
 
     @GetMapping("/ex06-2")
-    @ResponseBody
-    public Test2DTO ex06_2() {
+    @ResponseBody //여기다 넣는게 가속성에 좋다, public 다음으로 넣는 것 보다
+    public Test2DTO ex06_2(){ //그냥 Hyphen을 넣는건 안된다
         Test2DTO test2DTO = new Test2DTO();
         test2DTO.setName("Jack");
         test2DTO.setAge(30);
 
         Test2ContactNumbers t2cn1 = new Test2ContactNumbers();
         t2cn1.setType("Home");
-        t2cn1.setNumber("123 123-123");
+        t2cn1.setNumber("123-123-123");
+
         Test2ContactNumbers t2cn2 = new Test2ContactNumbers();
-        t2cn2.setType("Office");
-        t2cn2.setNumber("321 321-321");
+        t2cn2.setType("office");
+        t2cn2.setNumber("321-321-321");
 
         List<Test2ContactNumbers> test2ContactNumbersList = new ArrayList<>();
         test2ContactNumbersList.add(t2cn1);
@@ -176,10 +169,10 @@ public class SampleController {
     public ResponseEntity<String> ex07() {
         System.out.println("/ex07..............");
 
-        //String msg = "{\"name\": \"홍길동\"}";
+       // String msg = "{\"name\": \"홍길동\"}"; 또는 아래처럼 써 줄 수있다
         String msg = """
                 {"name": "홍길동"}
-        """;
+                """;
 
         HttpHeaders header = new HttpHeaders();
         header.add("Content-Type", "application/json;charset=UTF-8");
@@ -197,7 +190,23 @@ public class SampleController {
         files.forEach(file -> {
             System.out.println("-------------------");
             System.out.println("name: " + file.getOriginalFilename());
-            System.out.println("size: " + file.getSize());  // byte
+            System.out.println("size: " + file.getSize());
         });
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

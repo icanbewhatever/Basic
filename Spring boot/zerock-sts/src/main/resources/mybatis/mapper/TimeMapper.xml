@@ -8,11 +8,12 @@
     <select id="getTestCode" resultType="string">
         SELECT 'test코드' FROM dual
     </select>
-    <select id="getBoFreeNum" resultType="string">
-        SELECT
+    <select id="getBoFree" resultType="string">
+        SELECT MAX(NUM) FROM BO_FREE
+<!--    SELECT
             NAME
         FROM
             BO_FREE
-        ORDER BY NUM DESC fetch first 1 rows only
+        ORDER BY NUM DESC fetch first 1 rows only 이렇게도 사용할 수 있다-->
     </select>
 </mapper>

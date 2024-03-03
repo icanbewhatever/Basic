@@ -34,6 +34,6 @@ public class TimeMapperTests {
     public void testGetBoFreeName() {
         // mybatis로 bo_free테이블의 num컬럼의 값이 가장 큰 name값을 출력하는 코드 작성
         // System.out.println으로 출력
-        System.out.println("bo_free num: " + timeMapper.getBoFreeNum());
+        System.out.println("bo-free" + timeMapper.getBoFree());
     }
 }

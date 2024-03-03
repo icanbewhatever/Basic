@@ -6,7 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="/sample/exUploadPost" method="post" enctype="multiPart/form-data">
+    <form action=“/sample/exUploadPost”  method=“post” enctype=“multiPart/form-data">
      <div>
        <input type='file' name='files'>
      </div>

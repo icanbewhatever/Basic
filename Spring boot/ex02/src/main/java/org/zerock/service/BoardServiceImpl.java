@@ -41,9 +41,9 @@ public class BoardServiceImpl implements BoardService {
         return mapper.delete(bno) == 1;
     }
 
-     @Override
-     public List<BoardVO> getList(Criteria cri) {
-         log.info("getList..........");
-         return mapper.getList(cri);
-     }
+    @Override
+    public List<BoardVO> getList(Criteria cri) {
+        log.info("getList..........");
+        return mapper.getList(cri);
+    }
 }
