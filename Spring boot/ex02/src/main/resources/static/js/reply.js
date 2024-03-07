@@ -44,50 +44,93 @@ var replyService = (function() {
                 }
         });
     }
-    //댓글삭제
+
+    // 댓글 삭제
     function remove(rno, callback, error) {
         $.ajax({
-            type: 'delete',
-            url: '/replies/' + rno,
+            type : 'delete',
+            url : '/replies/' + rno,
             success : function(deleteResult, status, xhr) {
-                if (callback){
+                if (callback) {
                     callback(deleteResult);
-                    }
-                },
-                error : function(xhr, status, er) {
+                    alert('삭제 성공');
+                }
+            },
+            error : function(xhr, status, er) {
                 if (error) {
                     error(er);
-                    }
                 }
+            }
         });
     }
 
-    //수정
+    // 댓글 수정
     function update(reply, callback, error) {
         console.log("RNO: " + reply.rno);
 
         $.ajax({
-            type: 'put',
-            url: '/replies/' + reply.rno,
-            data: JSON.stringify(reply),
-            contentType: "application/json; charset=utf-8",
-            success: function(result, status, xhr){
-                if(callback){
+            type : 'put',
+            url : '/replies/' + reply.rno,
+            data : JSON.stringify(reply),
+            contentType : "application/json; charset=utf-8",
+            success : function(result, status, xhr) {
+                if (callback) {
                     callback(result);
                 }
             },
-            error: function(xhr, status, er) {
-                if(error){
+            error : function(xhr, status, er) {
+                if (error) {
                     error(er);
                 }
             }
-            });
-        }
+        });
+    }
+
+    // 댓글 상세조회
+    function get(rno, callback, error) {
+      $.get("/replies/" + rno, function(result) {
+         if (callback) {
+            callback(result);
+         }
+      }).fail(function(xhr, status, err) {
+         if (error) {
+            error();
+         }
+      });
+   }
+
+      // 날짜 Format (지난 날짜는 yy-mm-dd, 24시간 내에 등록된 댓글은 시간 hh:mm:ss로 표시)
+    function displayTime(timeValue) {
+            var today = new Date();
+            var replyDate =  new Date(timeValue);
+            var replyDateTime = replyDate.getTime();
+
+            var gap = today.getTime() - replyDateTime;
+            var dateObj = new Date(replyDateTime);
+            var str = "";
+          if (gap < (1000 * 60 * 60 * 24)) {          // 24시간이 지나지 않은 날짜는 시분초로 표시
+             var hh = dateObj.getHours();
+             var mi = dateObj.getMinutes();
+             var ss = dateObj.getSeconds();
+
+             return [ (hh > 9 ? '' : '0') + hh, ':', (mi > 9 ? '' : '0') + mi,
+                   ':', (ss > 9 ? '' : '0') + ss ].join('');
+          } else {                                    // 24시간이 지난 날짜는 년월일로 표시
+             var yy = dateObj.getFullYear();
+             var mm = dateObj.getMonth() + 1; // getMonth() is zero-based
+             var dd = dateObj.getDate();
+
+             return [ yy, '-', (mm > 9 ? '' : '0') + mm, '-',
+                   (dd > 9 ? '' : '0') + dd ].join('');
+          }
+      }
 
     return {
         add: replyAdd,
         getList: getList,
         remove: remove,
-        update: update
+        update: update,
+        get: get,
+        displayTime: displayTime
     };       // replyAdd function의 내용이 나옴
 })();

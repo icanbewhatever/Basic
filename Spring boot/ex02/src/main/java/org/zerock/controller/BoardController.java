@@ -14,6 +14,7 @@ import org.zerock.domain.BoardVO;
 import lombok.RequiredArgsConstructor;
 import org.zerock.domain.Criteria;
 import org.zerock.service.BoardService;
+import org.zerock.service.ReplyService;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardController {
 	private BoardService service;
+	private ReplyService replyService;
 
 	/**
 	 * 게시물 목록 조회
@@ -76,6 +78,8 @@ public class BoardController {
 	) {
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
+		model.addAttribute("replyTotalCount", replyService.getTotalCount(bno));
+
 	}
 
 	@PostMapping("/remove")
