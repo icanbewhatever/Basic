@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5516a4ab-e64c-4a6e-9d3b-dba583686e62" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/zerock/controller/ReplyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/zerock/controller/ReplyController.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2ccbXFsNIOhPKIl3KhJRyWAIdr4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Ex02Application.executor": "Run",
+    "JUnit.BoardControllerTests.executor": "Run",
+    "JUnit.BoardControllerTests.testGet.executor": "Run",
+    "JUnit.BoardControllerTests.testList.executor": "Run",
+    "JUnit.BoardControllerTests.testModify.executor": "Run",
+    "JUnit.BoardControllerTests.testRegister.executor": "Run",
+    "JUnit.BoardControllerTests.testRemove.executor": "Run",
+    "JUnit.BoardMapperTests.executor": "Run",
+    "JUnit.BoardMapperTests.mybatisDymamic1Test.executor": "Run",
+    "JUnit.BoardMapperTests.mybatisDynamic1Test.executor": "Run",
+    "JUnit.BoardMapperTests.mybatisDynamic2Test.executor": "Run",
+    "JUnit.BoardMapperTests.testGetList.executor": "Run",
+    "JUnit.BoardMapperTests.testInsert.executor": "Run",
+    "JUnit.BoardMapperTests.testRead.executor": "Run",
+    "JUnit.BoardMapperTests.testUpdate.executor": "Run",
+    "JUnit.BoardServiceTests.testDelete.executor": "Run",
+    "JUnit.BoardServiceTests.testGet.executor": "Run",
+    "JUnit.BoardServiceTests.testGetList.executor": "Run",
+    "JUnit.BoardServiceTests.testRegister.executor": "Run",
+    "JUnit.BoardServiceTests.testUpdate.executor": "Run",
+    "JUnit.ReplyMapperTests.testCreate.executor": "Run",
+    "Maven.ex02 [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/SpringBoot/starbucks-springboot-practice",
+    "settings.editor.selected.configurable": "vcs.Git"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.zerock.mapper" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\SpringBoot\ex02\src\main\java\org\zerock" />
+      <recent name="C:\SpringBoot\ex02\src\main\java\org\zerock\controller" />
+      <recent name="C:\SpringBoot\ex02\src\main\java\org\zerock\domain" />
+      <recent name="C:\SpringBoot\ex02\src\main\webapp\WEB-INF\views\board" />
+      <recent name="C:\SpringBoot\ex02\src\main\resources\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\SpringBoot\ex02\src\main\webapp\WEB-INF\views" />
+      <recent name="C:\SpringBoot\ex02\src\main\webapp\WEB-INF\views\board" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="org.zerock.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Ex02Application">
+    <configuration name="Ex02Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.zerock.Ex02Application" />
+      <module name="ex02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zerock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardMapperTests.mybatisDynamic2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ex02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zerock.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zerock.mapper" />
+      <option name="MAIN_CLASS_NAME" value="org.zerock.mapper.BoardMapperTests" />
+      <option name="METHOD_NAME" value="mybatisDynamic2Test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardMapperTests.testGetList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ex02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zerock.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zerock.mapper" />
+      <option name="MAIN_CLASS_NAME" value="org.zerock.mapper.BoardMapperTests" />
+      <option name="METHOD_NAME" value="testGetList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardMapperTests.testRead" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ex02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zerock.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zerock.mapper" />
+      <option name="MAIN_CLASS_NAME" value="org.zerock.mapper.BoardMapperTests" />
+      <option name="METHOD_NAME" value="testRead" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReplyMapperTests.testCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ex02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.zerock.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.zerock.mapper" />
+      <option name="MAIN_CLASS_NAME" value="org.zerock.mapper.ReplyMapperTests" />
+      <option name="METHOD_NAME" value="testCreate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Ex02Application" />
+        <item itemvalue="JUnit.ReplyMapperTests.testCreate" />
+        <item itemvalue="JUnit.BoardMapperTests.testGetList" />
+        <item itemvalue="JUnit.BoardMapperTests.testRead" />
+        <item itemvalue="JUnit.BoardMapperTests.mybatisDynamic2Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5516a4ab-e64c-4a6e-9d3b-dba583686e62" name="Changes" comment="" />
+      <created>1708413851943</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708413851943</updated>
+    </task>
+    <task id="LOCAL-00001" summary="test">
+      <option name="closed" value="true" />
+      <created>1709178761744</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709178761744</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test">
+      <option name="closed" value="true" />
+      <created>1709179013486</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709179013486</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test">
+      <option name="closed" value="true" />
+      <created>1709179023554</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709179023554</updated>
+    </task>
+    <task id="LOCAL-00004" summary="댓글 CRUD">
+      <option name="closed" value="true" />
+      <created>1709196008177</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709196008177</updated>
+    </task>
+    <task id="LOCAL-00005" summary="댓글 CRUD">
+      <option name="closed" value="true" />
+      <created>1709533507446</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709533507446</updated>
+    </task>
+    <task id="LOCAL-00006" summary="댓글 CRUD">
+      <option name="closed" value="true" />
+      <created>1709533518037</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709533518037</updated>
+    </task>
+    <task id="LOCAL-00007" summary="댓글 CRUD + 스크롤">
+      <option name="closed" value="true" />
+      <created>1709683530126</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709683530126</updated>
+    </task>
+    <task id="LOCAL-00008" summary="댓글 CRUD + 스크롤">
+      <option name="closed" value="true" />
+      <created>1709683543107</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709683543107</updated>
+    </task>
+    <task id="LOCAL-00009" summary="댓글 CRUD + 스크롤">
+      <option name="closed" value="true" />
+      <created>1709683578290</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709683578290</updated>
+    </task>
+    <task id="LOCAL-00010" summary="댓글 CRUD + 스크롤">
+      <option name="closed" value="true" />
+      <created>1709701026506</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709701026506</updated>
+    </task>
+    <task id="LOCAL-00011" summary="댓글 CRUD + 스크롤">
+      <option name="closed" value="true" />
+      <created>1709701033983</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1709701033983</updated>
+    </task>
+    <task id="LOCAL-00012" summary="댓글crud /scroll">
+      <option name="closed" value="true" />
+      <created>1709787906017</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709787906017</updated>
+    </task>
+    <task id="LOCAL-00013" summary="댓글crud /scroll">
+      <option name="closed" value="true" />
+      <created>1709787910292</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709787910292</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/master'">
+      <option name="closed" value="true" />
+      <created>1709787937044</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709787937044</updated>
+    </task>
+    <task id="LOCAL-00015" summary="댓글crud / scroll">
+      <option name="closed" value="true" />
+      <created>1709787962959</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709787962959</updated>
+    </task>
+    <task id="LOCAL-00016" summary="댓글crud / scroll">
+      <option name="closed" value="true" />
+      <created>1709787968650</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709787968650</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <MESSAGE value="댓길 CRUD" />
+    <MESSAGE value="댓글 CRUD" />
+    <MESSAGE value="댓글 CRUD + 스크롤" />
+    <MESSAGE value="댓글crud /scroll" />
+    <MESSAGE value="댓글crud / scroll" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/org/zerock/mapper/BoardMapperTests.java</url>
+          <line>27</line>
+          <properties class="org.zerock.mapper.BoardMapperTests" method="testGetList">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ex02$BoardMapperTests.ic" NAME="BoardMapperTests Coverage Results" MODIFIED="1708414539532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.zerock.mapper.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ex02$Ex02Application.ic" NAME="Ex02Application Coverage Results" MODIFIED="1708677065728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.zerock.*</FILTER>
+    </SUITE>
+  </component>
+</project>
